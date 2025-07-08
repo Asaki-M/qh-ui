@@ -1,16 +1,23 @@
 {
   "name": "qh-ui",
   "type": "module",
-  "private": true,
   "version": "0.0.1",
+  "private": true,
   "workspaces": [
     "packages/*"
   ],
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "license": "MIT",
   "packageManager": "pnpm@10.7.1",
+  "license": "MIT",
+  "scripts": {
+    "playground:dev": "pnpm --filter playground-vue dev",
+    "docs:dev": "pnpm --filter docs docs:dev",
+    "docs:build": "pnpm --filter docs docs:build",
+    "core:dev": "rimraf packages/core/dist && pnpm --filter qh-ui dev",
+    "build-only": "rimraf packages/core/dist && pnpm run -r build-only",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "bumpp": "bumpp package.json packages/*/package.json docs/package.json"
+  },
   "devDependencies": {
     "@antfu/eslint-config": "^4.16.2",
     "eslint": "^9.30.1",

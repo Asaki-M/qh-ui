@@ -26,7 +26,8 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
-    }
+    },
+    "./index.css": "./dist/index.css"
   },
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
@@ -39,7 +40,7 @@
   "scripts": {
     "build": "pnpm type-check && pnpm build-only",
     "build-only": "vite build",
-    "watch": "vite build --watch",
+    "dev": "vite build --watch",
     "type-check": "vue-tsc -p tsconfig.check.json --noEmit",
     "type-gen": "vue-tsc --declaration  --emitDeclarationOnly",
     "pub:release": "pnpm publish --no-git-checks --access public"
