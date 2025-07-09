@@ -6,7 +6,7 @@ import dts from 'vite-plugin-dts'
 
 const projectRootDir = resolve(__dirname)
 
-// A bit of a hack, but lets us use the proper extension in chunk filenames
+// 记录当前构建的格式
 let currentFormat = ''
 
 // https://vitejs.dev/config/
@@ -33,6 +33,7 @@ export default defineConfig({
     sourcemap: true,
     lib: {
       name: 'qh-ui',
+      formats: ['es', 'cjs'],
       fileName: (format, name) => {
         currentFormat = format
         return `${name}.${format === 'es' ? 'js' : 'cjs'}`
@@ -44,7 +45,19 @@ export default defineConfig({
     rollupOptions: {
       external: ['vue', '@vue/runtime-core', '@vue/runtime-dom', '@vue/shared'],
       output: {
+        inlineDynamicImports: false,
         exports: 'named',
+        manualChunks: (moduleId, { getModuleInfo }) => {
+          const info = getModuleInfo(moduleId)
+          if (moduleId.includes('node_modules') || !info?.isIncluded) {
+            return null
+          }
+
+          const [namespace, file] = moduleId.split('?')[0].split('/').slice(-2)
+          return `${namespace}/${file.slice(0, file.lastIndexOf('.'))}`
+        },
+        // 设置 chunk 文件名，去掉 hash 后缀
+        chunkFileNames: chunk => `${chunk.name}.${currentFormat === 'es' ? 'js' : 'cjs'}`,
         assetFileNames: (chunkInfo) => {
           if (chunkInfo.name === 'style.css') {
             return 'index.css'

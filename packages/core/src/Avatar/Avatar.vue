@@ -1,9 +1,10 @@
 <script setup lang="ts">
+import type { AvatarImageProps } from 'reka-ui'
 import { IconAccountCircle } from '@iconify-prerendered/vue-mdi'
 import { AvatarFallback, AvatarImage, AvatarRoot } from 'reka-ui'
 import { computed } from 'vue'
 
-export interface AvatarProps {
+export interface AvatarProps extends Omit<AvatarImageProps, 'src'> {
   /** 头像大小 */
   size?: '3xs' | '2xs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl'
   /** 图片地址 */

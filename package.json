@@ -25,6 +25,11 @@
     "rimraf": "^6.0.1",
     "typescript": "^5.8.3"
   },
+  "pnpm": {
+    "overrides": {
+      "vue": "3.5.17"
+    }
+  },
   "lint-staged": {
     "*": "eslint --fix"
   }

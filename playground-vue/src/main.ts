@@ -1,5 +1,9 @@
+import QHUI from 'qh-ui'
 import { createApp } from 'vue'
-import './style.css'
 import App from './App.vue'
+import './style.css'
 
-createApp(App).mount('#app')
+const app = createApp(App)
+
+app.use(QHUI)
+app.mount('#app')

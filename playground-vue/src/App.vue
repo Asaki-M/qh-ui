@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { Avatar } from 'qh-ui'
+// import { Avatar } from 'qh-ui'
 import 'qh-ui/index.css'
 </script>
 
 <template>
   <div class="space-y-4 p-8">
     <h1 class="text-2xl font-bold">
-      Avatar Examples
+      QHAvatar Examples
     </h1>
 
     <div class="space-y-2">
@@ -14,13 +14,13 @@ import 'qh-ui/index.css'
         Different Sizes
       </h2>
       <div class="flex items-center space-x-2">
-        <Avatar size="xs" />
-        <Avatar size="sm" />
-        <Avatar size="md" />
-        <Avatar size="lg" />
-        <Avatar size="xl" />
-        <Avatar size="2xl" />
-        <Avatar size="3xl" />
+        <QHAvatar size="xs" />
+        <QHAvatar size="sm" />
+        <QHAvatar size="md" />
+        <QHAvatar size="lg" />
+        <QHAvatar size="xl" />
+        <QHAvatar size="2xl" />
+        <QHAvatar size="3xl" />
       </div>
     </div>
 
@@ -28,7 +28,7 @@ import 'qh-ui/index.css'
       <h2 class="text-lg font-semibold">
         With Image
       </h2>
-      <Avatar
+      <QHAvatar
         size="xl"
         src="https://vitepress.dev/vitepress-logo-mini.svg"
         fallback="VP"
@@ -40,17 +40,17 @@ import 'qh-ui/index.css'
         With Fallback Text
       </h2>
       <div class="flex items-center space-x-2">
-        <Avatar
+        <QHAvatar
           size="md"
           fallback="A"
           radius="full"
         />
-        <Avatar
+        <QHAvatar
           size="lg"
           fallback="Test"
           radius="md"
         />
-        <Avatar
+        <QHAvatar
           size="xl"
           fallback="UI"
           radius="lg"

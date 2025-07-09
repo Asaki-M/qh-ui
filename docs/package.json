@@ -11,6 +11,7 @@
     "typescript": "*"
   },
   "dependencies": {
+    "qh-ui": "link:../packages/core",
     "vue": "^3.5.17"
   },
   "devDependencies": {
