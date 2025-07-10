@@ -30,7 +30,7 @@ export default defineConfig({
   build: {
     minify: false,
     target: 'esnext',
-    sourcemap: true,
+    // sourcemap: true,
     lib: {
       name: 'qh-ui',
       formats: ['es', 'cjs'],
