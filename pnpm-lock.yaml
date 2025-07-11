@@ -29,9 +29,15 @@ importers:
 
   docs:
     dependencies:
+      '@tailwindcss/vite':
+        specifier: ^4.1.11
+        version: 4.1.11(vite@5.4.19(@types/node@20.19.4)(lightningcss@1.30.1))
       qh-ui:
         specifier: link:../packages/core
         version: link:../packages/core
+      tailwindcss:
+        specifier: ^4.1.11
+        version: 4.1.11
       typescript:
         specifier: '*'
         version: 5.8.3

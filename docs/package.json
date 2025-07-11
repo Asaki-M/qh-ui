@@ -11,7 +11,9 @@
     "typescript": "*"
   },
   "dependencies": {
+    "@tailwindcss/vite": "^4.1.11",
     "qh-ui": "link:../packages/core",
+    "tailwindcss": "^4.1.11",
     "vue": "^3.5.17"
   },
   "devDependencies": {
