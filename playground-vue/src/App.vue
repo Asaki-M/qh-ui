@@ -6,6 +6,42 @@ import 'qh-ui/index.css'
 <template>
   <div class="space-y-4 p-8">
     <h1 class="text-2xl font-bold">
+      QHButton Examples
+    </h1>
+    <div class="space-x-4">
+      <QHButton>
+        Click me
+      </QHButton>
+      <QHButton variant="secondary">
+        Click me
+      </QHButton>
+      <QHButton variant="outline">
+        Click me
+      </QHButton>
+      <QHButton variant="ghost">
+        Click me
+      </QHButton>
+      <QHButton variant="link">
+        Click me
+      </QHButton>
+    </div>
+    <div class="space-x-4">
+      <QHButton size="sm">
+        Click me
+      </QHButton>
+      <QHButton size="md">
+        Click me
+      </QHButton>
+      <QHButton
+        size="lg"
+        disabled
+      >
+        Click me
+      </QHButton>
+    </div>
+  </div>
+  <div class="space-y-4 p-8">
+    <h1 class="text-2xl font-bold">
       QHAvatar Examples
     </h1>
 
