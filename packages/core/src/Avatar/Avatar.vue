@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import type { AvatarImageProps } from 'reka-ui'
-import { IconAccountCircle } from '@iconify-prerendered/vue-mdi'
 import { AvatarFallback, AvatarImage, AvatarRoot } from 'reka-ui'
 import { computed } from 'vue'
+import Icon from '@/Icon/Icon.vue'
 
 export interface AvatarProps extends Omit<AvatarImageProps, 'src'> {
   /** 头像大小 */
@@ -68,9 +68,10 @@ const radiusClasses = computed(() => {
     <AvatarFallback
       class="flex items-center justify-center w-full h-full bg-gray-200 text-gray-600 font-medium"
     >
-      <IconAccountCircle
+      <Icon
         v-if="!fallback"
         class="w-2/3 h-2/3"
+        icon="mdi:account-circle"
       />
       <span
         v-else

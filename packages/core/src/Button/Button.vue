@@ -4,18 +4,25 @@ export interface ButtonProps {
   size?: 'sm' | 'md' | 'lg'
   disabled?: boolean
   extraClass?: string
+  loading?: boolean
 }
 </script>
 
 <script setup lang="ts">
 import { computed } from 'vue'
+import Icon from '@/Icon/Icon.vue'
 
 const props = withDefaults(defineProps<ButtonProps>(), {
   variant: 'primary',
   size: 'md',
   disabled: false,
   extraClass: '',
+  loading: false,
 })
+
+const emit = defineEmits<{
+  (e: 'click'): void
+}>()
 
 const variantClasses = computed(() => {
   const variantMap = {
@@ -30,21 +37,35 @@ const variantClasses = computed(() => {
 
 const sizeClasses = computed(() => {
   const sizeMap = {
-    sm: 'p-1 text-sm',
-    md: 'px-2 py-1 text-base',
-    lg: 'px-4 py-2 text-lg',
+    sm: 'p-1 text-sm h-8',
+    md: 'px-2 py-1 text-base h-10',
+    lg: 'px-4 py-2 text-lg h-12',
   }
   return sizeMap[props.size]
 })
+
+function handleClick() {
+  if (props.loading || props.disabled)
+    return
+  emit('click')
+}
 </script>
 
 <template>
   <button
     :class="[variantClasses, sizeClasses, extraClass]"
-    class="rounded-md cursor-pointer transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
-    :disabled="disabled"
+    class="rounded-md cursor-pointer transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 w-fit"
+    :disabled="disabled || loading"
+    @click="handleClick"
   >
-    <!-- TODO: Add icon and loading -->
+    <slot name="prefix" />
+    <Icon
+      v-if="loading"
+      width="1.5em"
+      height="1.5em"
+      icon="line-md:loading-twotone-loop"
+    />
     <slot />
+    <slot name="suffix" />
   </button>
 </template>

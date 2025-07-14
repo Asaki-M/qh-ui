@@ -1,6 +1,16 @@
 <script setup lang="ts">
+import { ref } from 'vue'
 // import { Avatar } from 'qh-ui'
 import 'qh-ui/index.css'
+
+const loading = ref(false)
+
+function handleClick() {
+  loading.value = true
+  setTimeout(() => {
+    loading.value = false
+  }, 3000)
+}
 </script>
 
 <template>
@@ -8,7 +18,7 @@ import 'qh-ui/index.css'
     <h1 class="text-2xl font-bold">
       QHButton Examples
     </h1>
-    <div class="space-x-4">
+    <div class="space-x-4 flex items-center">
       <QHButton>
         Click me
       </QHButton>
@@ -25,11 +35,15 @@ import 'qh-ui/index.css'
         Click me
       </QHButton>
     </div>
-    <div class="space-x-4">
+    <div class="space-x-4 flex items-center">
       <QHButton size="sm">
         Click me
       </QHButton>
-      <QHButton size="md">
+      <QHButton
+        size="md"
+        :loading="loading"
+        @click="handleClick"
+      >
         Click me
       </QHButton>
       <QHButton

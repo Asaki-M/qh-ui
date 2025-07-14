@@ -51,22 +51,19 @@ importers:
 
   packages/core:
     dependencies:
-      '@iconify-prerendered/vue-mdi':
-        specifier: ^0.28.1737398331
-        version: 0.28.1737398331(vue@3.5.17(typescript@5.8.3))
-      '@tailwindcss/vite':
-        specifier: ^4.1.11
-        version: 4.1.11(vite@5.4.19(@types/node@20.19.4)(lightningcss@1.30.1))
       '@vueuse/core':
         specifier: ^12.5.0
         version: 12.8.2(typescript@5.8.3)
       reka-ui:
         specifier: ^2.3.2
         version: 2.3.2(typescript@5.8.3)(vue@3.5.17(typescript@5.8.3))
-      tailwindcss:
-        specifier: ^4.1.11
-        version: 4.1.11
     devDependencies:
+      '@iconify/vue':
+        specifier: ^5.0.0
+        version: 5.0.0(vue@3.5.17(typescript@5.8.3))
+      '@tailwindcss/vite':
+        specifier: ^4.1.11
+        version: 4.1.11(vite@5.4.19(@types/node@20.19.4)(lightningcss@1.30.1))
       '@tsconfig/node18':
         specifier: ^18.2.4
         version: 18.2.4
@@ -79,6 +76,9 @@ importers:
       '@vue/tsconfig':
         specifier: ^0.7.0
         version: 0.7.0(typescript@5.8.3)(vue@3.5.17(typescript@5.8.3))
+      tailwindcss:
+        specifier: ^4.1.11
+        version: 4.1.11
       vite:
         specifier: ^5.4.19
         version: 5.4.19(@types/node@20.19.4)(lightningcss@1.30.1)
@@ -699,13 +699,13 @@ packages:
   '@iconify-json/simple-icons@1.2.41':
     resolution: {integrity: sha512-4tt29cKzNsxvt6rjAOVhEgpZV0L8jleTDTMdtvIJjF14Afp9aH8peuwGYyX35l6idfFwuzbvjSVfVyVjJtfmYA==}
 
-  '@iconify-prerendered/vue-mdi@0.28.1737398331':
-    resolution: {integrity: sha512-VzBgRTfdhrUZeuaImPGX+l+Eb94qEQSSLGKKHs6BxQXJV9jPoDGqgQkzsUbZHThC81WQ1aY2EvlhmTgGq9yKEA==}
-    peerDependencies:
-      vue: 3.5.17
-
   '@iconify/types@2.0.0':
     resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
+
+  '@iconify/vue@5.0.0':
+    resolution: {integrity: sha512-C+KuEWIF5nSBrobFJhT//JS87OZ++QDORB6f2q2Wm6fl2mueSTpFBeBsveK0KW9hWiZ4mNiPjsh6Zs4jjdROSg==}
+    peerDependencies:
+      vue: 3.5.17
 
   '@internationalized/date@3.8.2':
     resolution: {integrity: sha512-/wENk7CbvLbkUvX1tu0mwq49CVkkWpkXubGel6birjRPyo6uQ4nQpnq5xZu823zRCwwn82zgHrvgF1vZyvmVgA==}
@@ -3458,11 +3458,12 @@ snapshots:
     dependencies:
       '@iconify/types': 2.0.0
 
-  '@iconify-prerendered/vue-mdi@0.28.1737398331(vue@3.5.17(typescript@5.8.3))':
-    dependencies:
-      vue: 3.5.17(typescript@5.8.3)
-
   '@iconify/types@2.0.0': {}
+
+  '@iconify/vue@5.0.0(vue@3.5.17(typescript@5.8.3))':
+    dependencies:
+      '@iconify/types': 2.0.0
+      vue: 3.5.17(typescript@5.8.3)
 
   '@internationalized/date@3.8.2':
     dependencies:
