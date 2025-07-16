@@ -1,1 +1,32 @@
 @import 'tailwindcss';
+@custom-variant dark (&:where(.dark, .dark *));
+@theme {
+  /* 启用暗黑模式 */
+  --default-dark-mode: class;
+  
+  /* 自定义主色 */
+  --color-primary-50: #fef7f0;
+  --color-primary-100: #fdeee3;
+  --color-primary-200: #fbd3c7;
+  --color-primary-300: #f9b8ab;
+  --color-primary-400: #f7827f;
+  --color-primary-500: #fb7299;  /* 你的主色 */
+  --color-primary-600: #e85a84;
+  --color-primary-700: #d5436f;
+  --color-primary-800: #c22c5a;
+  --color-primary-900: #af1545;
+  --color-primary-950: #8b1538;
+  
+  /* 自定义语义化颜色 */
+  --color-success-50: #f0fdf4;
+  --color-success-500: #22c55e;
+  --color-success-600: #16a34a;
+  
+  --color-warning-50: #fffbeb;
+  --color-warning-500: #f59e0b;
+  --color-warning-600: #d97706;
+  
+  --color-error-50: #fef2f2;
+  --color-error-500: #ef4444;
+  --color-error-600: #dc2626;
+}

@@ -1,6 +1,30 @@
 @import 'tailwindcss';
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --primary: #fb7299;
+  --secondary: #ffe3ee;
+  --border: oklch(0.92 0.004 286.32);
+  --radius: 0.625rem;
+  --accent: #5ec5d5;
+}
+
+.dark {
+  --primary:   #f88aaa;
+  --secondary: #3a1922;
+  --accent:    #48b5c4;
+  --border:    oklch(0.35 0.05 286.32);
+  --radius:    0.625rem;
+}
 
 @theme {
-  --color-primary: #fb7299;
-  --color-secondary: #f4f4f5;
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --border-color: var(--border);
+  --accent: var(--accent);
+  --radius: var(--radius);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
 }

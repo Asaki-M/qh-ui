@@ -11,16 +11,20 @@ function handleClick() {
     loading.value = false
   }, 3000)
 }
+
+function handleToggleTheme() {
+  document.documentElement.classList.toggle('dark')
+}
 </script>
 
 <template>
-  <div class="space-y-4 p-8">
+  <div class="space-y-4 p-8 bg-zinc-50 dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 transition-colors">
     <h1 class="text-2xl font-bold">
       QHButton Examples
     </h1>
     <div class="space-x-4 flex items-center">
-      <QHButton>
-        Click me
+      <QHButton @click="handleToggleTheme">
+        🌙 切换暗黑模式
       </QHButton>
       <QHButton variant="secondary">
         Click me
@@ -54,7 +58,7 @@ function handleClick() {
       </QHButton>
     </div>
   </div>
-  <div class="space-y-4 p-8">
+  <div class="space-y-4 p-8 bg-zinc-50 dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 transition-colors">
     <h1 class="text-2xl font-bold">
       QHAvatar Examples
     </h1>

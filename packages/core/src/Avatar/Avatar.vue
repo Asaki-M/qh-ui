@@ -52,7 +52,7 @@ const radiusClasses = computed(() => {
 
 <template>
   <AvatarRoot
-    class="inline-flex items-center justify-center overflow-hidden bg-gray-100"
+    class="inline-flex items-center justify-center overflow-hidden bg-gray-100 dark:bg-gray-800"
     :class="[
       sizeClasses,
       radiusClasses,
