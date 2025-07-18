@@ -1,7 +1,6 @@
-<script setup lang="ts">
+<script lang="ts">
 import type { AvatarImageProps } from 'reka-ui'
 import { AvatarFallback, AvatarImage, AvatarRoot } from 'reka-ui'
-import { computed } from 'vue'
 import Icon from '@/Icon/Icon.vue'
 
 export interface AvatarProps extends Omit<AvatarImageProps, 'src'> {
@@ -16,7 +15,10 @@ export interface AvatarProps extends Omit<AvatarImageProps, 'src'> {
   /** 圆角大小 */
   radius?: 'full' | 'lg' | 'md' | 'sm'
 }
+</script>
 
+<script setup lang="ts">
+import { computed } from 'vue'
 // Props 定义
 const props = withDefaults(defineProps<AvatarProps>(), {
   size: 'md',
@@ -52,7 +54,7 @@ const radiusClasses = computed(() => {
 
 <template>
   <AvatarRoot
-    class="inline-flex items-center justify-center overflow-hidden bg-gray-100 dark:bg-gray-800"
+    class="qh-avatar-root inline-flex items-center justify-center overflow-hidden bg-gray-100 dark:bg-gray-800"
     :class="[
       sizeClasses,
       radiusClasses,
@@ -62,11 +64,11 @@ const radiusClasses = computed(() => {
       v-if="src"
       :src="src"
       :alt="alt"
-      class="w-full h-full object-cover"
+      class="qh-avatar-image w-full h-full object-cover"
     />
 
     <AvatarFallback
-      class="flex items-center justify-center w-full h-full bg-gray-200 text-gray-600 font-medium"
+      class="qh-avatar-fallback flex items-center justify-center w-full h-full bg-gray-200 text-gray-600 font-medium"
     >
       <Icon
         v-if="!fallback"

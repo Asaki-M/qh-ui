@@ -54,7 +54,7 @@ function handleClick() {
 <template>
   <button
     :class="[variantClasses, sizeClasses, extraClass]"
-    class="rounded-md cursor-pointer transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 w-fit"
+    class="qh-button rounded-md cursor-pointer transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 w-fit"
     :disabled="disabled || loading"
     @click="handleClick"
   >
@@ -64,6 +64,7 @@ function handleClick() {
       width="1.5em"
       height="1.5em"
       icon="line-md:loading-twotone-loop"
+      class="qh-button-loading"
     />
     <slot />
     <slot name="suffix" />
