@@ -4,6 +4,37 @@ import { ref } from 'vue'
 import 'qh-ui/index.css'
 
 const loading = ref(false)
+const checked = ref(false)
+// watch(checked, (newVal) => {
+//   console.log(newVal)
+// })
+
+const radioValue = ref('default')
+const radioOptions = ref([
+  {
+    label: '同意条款',
+    value: 'default',
+  },
+  {
+    label: '不同意条款',
+    value: 'disagree',
+  },
+])
+const radioValue2 = ref('disagree2')
+const radioOptions2 = ref([
+  {
+    label: '同意条款',
+    value: 'default2',
+  },
+  {
+    label: '不同意条款',
+    value: 'disagree2',
+    disabled: true,
+  },
+])
+// watch(radioValue, (newVal) => {
+//   console.log(newVal, 'radioValue')
+// })
 
 function handleClick() {
   loading.value = true
@@ -19,6 +50,28 @@ function handleToggleTheme() {
 
 <template>
   <div class="w-full h-full bg-zinc-50 dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 transition-colors">
+    <div class="space-y-4 p-8">
+      <h1 class="text-2xl font-bold">
+        QHRadioGroup Examples
+      </h1>
+      <div class="space-x-4 flex items-center">
+        <QHRadioGroup
+          v-model="radioValue"
+          :options="radioOptions"
+        />
+        <QHRadioGroup
+          v-model="radioValue2"
+          disabled
+          orientation="horizontal"
+          :options="radioOptions2"
+        />
+        <QHRadioGroup
+          v-model="radioValue2"
+          :options="radioOptions2"
+        />
+      </div>
+    </div>
+
     <div class="space-y-4 p-8">
       <h1 class="text-2xl font-bold">
         QHCheckbox Examples
@@ -37,6 +90,7 @@ function handleToggleTheme() {
           size="sm"
         />
         <QHCheckbox
+          v-model="checked"
           label="同意条款"
           size="lg"
         />
