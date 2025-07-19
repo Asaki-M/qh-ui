@@ -6,12 +6,14 @@ import { Avatar } from '@/Avatar'
 import { Button } from '@/Button'
 import { Checkbox } from '@/Checkbox'
 import { Icon } from '@/Icon'
+import { Radio } from '@/Radio'
 
 export {
   Avatar,
   Button,
   Checkbox,
   Icon,
+  Radio,
   // ... other components
 }
 

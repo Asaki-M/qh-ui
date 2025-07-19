@@ -27,7 +27,6 @@ function handleToggleTheme() {
         <QHCheckbox label="同意条款" />
         <QHCheckbox
           label="同意条款"
-          label-position="left"
         />
         <QHCheckbox
           label="同意条款"

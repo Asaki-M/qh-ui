@@ -3,11 +3,9 @@ export interface CheckboxProps {
   modelValue?: boolean
   disabled?: boolean
   label?: string
-  containerClass?: string
   checkboxClass?: string
   labelClass?: string
   size?: 'sm' | 'md' | 'lg'
-  labelPosition?: 'left' | 'right'
 }
 </script>
 
@@ -24,7 +22,6 @@ const props = withDefaults(defineProps<CheckboxProps>(), {
   checkboxClass: '',
   labelClass: '',
   size: 'md',
-  labelPosition: 'right',
 })
 
 const emit = defineEmits<{
@@ -55,25 +52,15 @@ function handleChange(value: boolean) {
 </script>
 
 <template>
-  <div
-    class="qh-checkbox-container flex items-center gap-2"
-    :class="containerClass"
+  <label
+    class="qh-checkbox-label flex items-center gap-2 select-none"
+    :class="[labelClass, disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer']"
+    @click="!disabled && handleChange(!modelValue)"
   >
-    <!-- Label on left -->
-    <label
-      v-if="label && labelPosition === 'left'"
-      class="qh-checkbox-label select-none cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
-      :class="labelClass"
-      @click="!disabled && handleChange(!modelValue)"
-    >
-      {{ label }}
-    </label>
-
-    <!-- Checkbox -->
     <CheckboxRoot
       :checked="modelValue"
       :disabled="disabled"
-      class="qh-checkbox flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed bg-primary"
+      class="qh-checkbox flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed bg-white border border-primary data-[state=checked]:bg-primary"
       :class="[sizeClasses, checkboxClass]"
       @update:checked="handleChange"
     >
@@ -86,15 +73,6 @@ function handleChange(value: boolean) {
         />
       </CheckboxIndicator>
     </CheckboxRoot>
-
-    <!-- Label on right -->
-    <label
-      v-if="label && labelPosition === 'right'"
-      class="qh-checkbox-label select-none cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
-      :class="labelClass"
-      @click="!disabled && handleChange(!modelValue)"
-    >
-      {{ label }}
-    </label>
-  </div>
+    {{ label }}
+  </label>
 </template>
