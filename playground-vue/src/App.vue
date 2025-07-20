@@ -46,10 +46,26 @@ function handleClick() {
 function handleToggleTheme() {
   document.documentElement.classList.toggle('dark')
 }
+
+const numberValue = ref(0)
 </script>
 
 <template>
   <div class="w-full h-full bg-zinc-50 dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 transition-colors">
+    <div class="space-y-4 p-8">
+      <h1 class="text-2xl font-bold">
+        QHNumberField Examples
+      </h1>
+      <QHNumberField
+        v-model="numberValue"
+        label="Age"
+      />
+      <QHNumberField
+        v-model="numberValue"
+        variant="secondary"
+      />
+    </div>
+
     <div class="space-y-4 p-8">
       <h1 class="text-2xl font-bold">
         QHRadioGroup Examples
