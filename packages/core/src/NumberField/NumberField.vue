@@ -60,7 +60,7 @@ const variantClass = computed(() => {
       {{ label }}
     </label>
     <div
-      class="qh-number-field-input-container mt-1 flex items-center w-fit rounded"
+      class="qh-number-field-input-container mt-1 flex items-center w-fit rounded focus-within:ring-2 focus-within:ring-primary/20"
       :class="[variantClass, inputContainerClass]"
     >
       <NumberFieldDecrement

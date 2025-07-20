@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { reactive, ref } from 'vue'
 // import { Avatar } from 'qh-ui'
 import 'qh-ui/index.css'
 
@@ -48,10 +48,70 @@ function handleToggleTheme() {
 }
 
 const numberValue = ref(0)
+const inputValue = reactive({
+  text: '',
+  password: '',
+  email: '',
+  tel: '',
+  url: '',
+  search: '',
+})
+const passwordVisible = ref(false)
 </script>
 
 <template>
   <div class="w-full h-full bg-zinc-50 dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 transition-colors">
+    <div class="space-y-4 p-8">
+      <h1 class="text-2xl font-bold">
+        QHInput Examples
+      </h1>
+      <QHInput
+        v-model="inputValue.text"
+        label="Text"
+        size="sm"
+        variant="secondary"
+      />
+      <QHInput
+        v-model="inputValue.password"
+        label="Password"
+        :type="passwordVisible ? 'text' : 'password'"
+      >
+        <template #suffix>
+          <QHIcon
+            :icon="passwordVisible ? 'line-md:watch' : 'line-md:watch-off'"
+            class="cursor-pointer"
+            @click="passwordVisible = !passwordVisible"
+          />
+        </template>
+      </QHInput>
+      <QHInput
+        v-model="inputValue.email"
+        type="email"
+        label="Email"
+        size="lg"
+        variant="secondary"
+      />
+      <QHInput
+        v-model="inputValue.tel"
+        type="tel"
+        label="Tel"
+      />
+      <QHInput
+        v-model="inputValue.url"
+        type="url"
+        label="Url"
+      />
+      <QHInput
+        v-model="inputValue.search"
+        size="md"
+        label="Search"
+      >
+        <template #prefix>
+          <span class="text-zinc-500 pl-2">$</span>
+        </template>
+      </QHInput>
+    </div>
+
     <div class="space-y-4 p-8">
       <h1 class="text-2xl font-bold">
         QHNumberField Examples
