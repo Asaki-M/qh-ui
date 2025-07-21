@@ -66,10 +66,35 @@ const pinInputNumberValue = ref<number[]>([])
 // watch(pinInputValue, (newVal) => {
 //   console.log(newVal, 'pinInputValue')
 // })
+
+const sliderValue = ref([30])
 </script>
 
 <template>
   <div class="w-full h-full bg-zinc-50 dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 transition-colors">
+    <div class="space-y-4 p-8">
+      <h1 class="text-2xl font-bold">
+        QHSlider Examples
+      </h1>
+      <QHSlider
+        v-model="sliderValue"
+        orientation="vertical"
+        label="Slider"
+        :length="8"
+      />
+      <QHSlider
+        v-model="sliderValue"
+        label="Slider"
+        container-classes="w-[200px]"
+        label-orientation="horizontal"
+        size="sm"
+      />
+      <QHSlider
+        v-model="sliderValue"
+        :step="8"
+        size="lg"
+      />
+    </div>
     <div class="space-y-4 p-8">
       <h1 class="text-2xl font-bold">
         QHPinInput Examples

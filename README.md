@@ -7,7 +7,7 @@ TODO:
   - Pin Input [✔️]
   - Input [✔️]
   - Radio Group [✔️]
-  - Slider
+  - Slider [✔️]
   - Switch
   - Toggle
   - Select
