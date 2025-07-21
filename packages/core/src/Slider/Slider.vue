@@ -86,6 +86,7 @@ const trackSize = computed(() => {
     :class="[containerClass, containerClasses]"
   >
     <label
+      v-if="label"
       :for="componentsId"
       :class="labelClasses"
     >{{ label }}</label>

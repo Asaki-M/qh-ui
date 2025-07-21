@@ -6,6 +6,7 @@ import type { NumberFieldProps } from '@/NumberField'
 import type { PinInputProps } from '@/PinInput'
 import type { RadioGroupProps, RadioOption } from '@/RadioGroup'
 import type { SliderProps } from '@/Slider'
+import type { SwitchProps } from '@/Switch'
 // import type { IconProps } from '@/Icon'
 import { Avatar } from '@/Avatar'
 import { Button } from '@/Button'
@@ -16,6 +17,7 @@ import { NumberField } from '@/NumberField'
 import { PinInput } from '@/PinInput'
 import { RadioGroup } from '@/RadioGroup'
 import { Slider } from '@/Slider'
+import { Switch } from '@/Switch'
 
 export {
   Avatar,
@@ -27,6 +29,7 @@ export {
   PinInput,
   RadioGroup,
   Slider,
+  Switch,
   // ... other components
 }
 
@@ -40,5 +43,6 @@ export type {
   RadioGroupProps,
   RadioOption,
   SliderProps,
+  SwitchProps,
   // IconProps,
 }

@@ -8,8 +8,7 @@ TODO:
   - Input [✔️]
   - Radio Group [✔️]
   - Slider [✔️]
-  - Switch
-  - Toggle
+  - Switch [✔️]
   - Select
   - Combobox
 - General
