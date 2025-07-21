@@ -57,10 +57,35 @@ const inputValue = reactive({
   search: '',
 })
 const passwordVisible = ref(false)
+
+const pinInputValue = ref([])
+const pinInputNumberValue = ref<number[]>([])
+// watch(pinInputNumberValue, (newVal) => {
+//   console.log(newVal, 'pinInputNumberValue')
+// })
+// watch(pinInputValue, (newVal) => {
+//   console.log(newVal, 'pinInputValue')
+// })
 </script>
 
 <template>
   <div class="w-full h-full bg-zinc-50 dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 transition-colors">
+    <div class="space-y-4 p-8">
+      <h1 class="text-2xl font-bold">
+        QHPinInput Examples
+      </h1>
+      <QHPinInput
+        v-model="pinInputValue"
+        :length="8"
+      />
+      <QHPinInput
+        v-model="pinInputNumberValue"
+        type="number"
+        :length="4"
+        placeholder="o"
+        variant="secondary"
+      />
+    </div>
     <div class="space-y-4 p-8">
       <h1 class="text-2xl font-bold">
         QHInput Examples

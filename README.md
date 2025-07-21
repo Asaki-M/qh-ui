@@ -4,7 +4,7 @@ TODO:
 - Forms
   - Checkbox [✔️]
   - Number Field [✔️]
-  - Pin Input
+  - Pin Input [✔️]
   - Input [✔️]
   - Radio Group [✔️]
   - Slider
