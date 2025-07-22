@@ -82,10 +82,148 @@ const switchValue10 = ref(true)
 const switchValue11 = ref(false)
 const switchValue12 = ref(true)
 const switchValue13 = ref(false)
+
+const selectValue = ref('apple')
+const selectValue2 = ref('')
+const selectValue3 = ref('option2')
+const selectValue4 = ref('')
+const selectValue5 = ref('banana')
+
+// 二维数组格式：每个子数组代表一个分组
+const fruits = [
+  [
+    { value: 'apple', label: '苹果', groupLabel: '水果' },
+    { value: 'banana', label: '香蕉' },
+    { value: 'orange', label: '橙子' },
+    { value: 'grape', label: '葡萄', disabled: true },
+  ],
+  [
+    { value: 'carrot', label: '胡萝卜', groupLabel: '蔬菜' },
+    { value: 'broccoli', label: '西兰花' },
+    { value: 'potato', label: '土豆', disabled: true },
+  ],
+]
+
+// 单层数组（无分组）
+const simpleFruits = [
+  [
+    { value: 'apple', label: '苹果' },
+    { value: 'banana', label: '香蕉' },
+    { value: 'orange', label: '橙子' },
+    { value: 'pineapple', label: '菠萝' },
+  ],
+]
+
+const openSelect = ref(false)
+// watch(openSelect, (newVal) => {
+//   console.log(newVal, 'openSelect')
+// })
 </script>
 
 <template>
   <div class="w-full h-full bg-zinc-50 dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 transition-colors">
+    <div class="space-y-4 p-8">
+      <h1 class="text-2xl font-bold">
+        QHSelect Examples
+      </h1>
+
+      <!-- 基础示例 -->
+      <QHSelect
+        v-model="selectValue"
+        v-model:open="openSelect"
+        label="基础选择器"
+        placeholder="请选择水果"
+        :options="fruits"
+      />
+
+      <!-- 不同尺寸 -->
+      <div class="space-y-2">
+        <h3 class="text-lg font-semibold">
+          不同尺寸
+        </h3>
+        <div class="flex items-start gap-4">
+          <QHSelect
+            v-model="selectValue2"
+            label="小尺寸"
+            size="sm"
+            :options="simpleFruits"
+          />
+          <QHSelect
+            v-model="selectValue3"
+            label="中等尺寸"
+            size="md"
+            :options="simpleFruits"
+          />
+          <QHSelect
+            v-model="selectValue4"
+            label="大尺寸"
+            size="lg"
+            :options="simpleFruits"
+          />
+        </div>
+      </div>
+
+      <!-- 不同变体 -->
+      <div class="space-y-2">
+        <h3 class="text-lg font-semibold">
+          不同变体
+        </h3>
+        <div class="flex items-start gap-4">
+          <QHSelect
+            v-model="selectValue"
+            label="主要样式"
+            variant="primary"
+            :options="simpleFruits"
+          />
+          <QHSelect
+            v-model="selectValue2"
+            label="次要样式"
+            variant="secondary"
+            :options="simpleFruits"
+          />
+        </div>
+      </div>
+
+      <!-- 分组选项 -->
+      <div class="space-y-2">
+        <h3 class="text-lg font-semibold">
+          分组选项
+        </h3>
+        <QHSelect
+          v-model="selectValue5"
+          label="分组选择器"
+          placeholder="请选择食物"
+          :options="fruits"
+        />
+      </div>
+
+      <!-- 禁用状态 -->
+      <div class="space-y-2">
+        <h3 class="text-lg font-semibold">
+          禁用状态
+        </h3>
+        <QHSelect
+          v-model="selectValue"
+          label="禁用选择器"
+          disabled
+          :options="simpleFruits"
+        />
+      </div>
+
+      <!-- 自定义样式 -->
+      <div class="space-y-2">
+        <h3 class="text-lg font-semibold">
+          自定义样式
+        </h3>
+        <QHSelect
+          v-model="selectValue"
+          label="自定义样式选择器"
+          :options="simpleFruits"
+          label-class="text-blue-600 font-medium"
+          trigger-class="border-blue-300"
+        />
+      </div>
+    </div>
     <div class="space-y-4 p-8">
       <h1 class="text-2xl font-bold">
         QHSwitch Examples

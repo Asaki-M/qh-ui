@@ -9,7 +9,7 @@ TODO:
   - Radio Group [✔️]
   - Slider [✔️]
   - Switch [✔️]
-  - Select
+  - Select [✔️]
   - Combobox
 - General
   - Avatar [✔️]
