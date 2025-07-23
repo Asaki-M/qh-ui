@@ -85,33 +85,77 @@ const switchValue13 = ref(false)
 
 const selectValue = ref('apple')
 const selectValue2 = ref('')
-const selectValue3 = ref('option2')
+const selectValue3 = ref('strawberry')
 const selectValue4 = ref('')
 const selectValue5 = ref('banana')
+const selectValue6 = ref('')
 
-// 二维数组格式：每个子数组代表一个分组
+// 使用 label 和 children 格式的分组数据
 const fruits = [
-  [
-    { value: 'apple', label: '苹果', groupLabel: '水果' },
-    { value: 'banana', label: '香蕉' },
-    { value: 'orange', label: '橙子' },
-    { value: 'grape', label: '葡萄', disabled: true },
-  ],
-  [
-    { value: 'carrot', label: '胡萝卜', groupLabel: '蔬菜' },
-    { value: 'broccoli', label: '西兰花' },
-    { value: 'potato', label: '土豆', disabled: true },
-  ],
+  {
+    label: '水果',
+    children: [
+      { value: 'apple', label: '苹果' },
+      { value: 'banana', label: '香蕉' },
+      { value: 'orange', label: '橙子' },
+      { value: 'grape', label: '葡萄', disabled: true },
+    ],
+  },
+  {
+    label: '蔬菜',
+    children: [
+      { value: 'carrot', label: '胡萝卜' },
+      { value: 'broccoli', label: '西兰花' },
+      { value: 'potato', label: '土豆', disabled: true },
+    ],
+  },
 ]
 
-// 单层数组（无分组）
+// 单层数据（无分组标签）
 const simpleFruits = [
-  [
-    { value: 'apple', label: '苹果' },
-    { value: 'banana', label: '香蕉' },
-    { value: 'orange', label: '橙子' },
-    { value: 'pineapple', label: '菠萝' },
-  ],
+  {
+    children: [
+      { value: 'apple', label: '苹果' },
+      { value: 'banana', label: '香蕉' },
+      { value: 'orange', label: '橙子' },
+      { value: 'pineapple', label: '菠萝' },
+    ],
+  },
+]
+
+// 热带水果分组
+const tropicalFruits = [
+  {
+    label: '热带水果',
+    children: [
+      { value: 'mango', label: '芒果' },
+      { value: 'pineapple', label: '菠萝' },
+      { value: 'coconut', label: '椰子' },
+      { value: 'papaya', label: '木瓜', disabled: true },
+    ],
+  },
+  {
+    label: '温带水果',
+    children: [
+      { value: 'apple', label: '苹果' },
+      { value: 'pear', label: '梨' },
+      { value: 'peach', label: '桃子' },
+      { value: 'cherry', label: '樱桃' },
+    ],
+  },
+]
+
+// 浆果类
+const berries = [
+  {
+    label: '浆果',
+    children: [
+      { value: 'strawberry', label: '草莓' },
+      { value: 'blueberry', label: '蓝莓' },
+      { value: 'raspberry', label: '覆盆子' },
+      { value: 'blackberry', label: '黑莓' },
+    ],
+  },
 ]
 
 const openSelect = ref(false)
@@ -189,12 +233,32 @@ const openSelect = ref(false)
         <h3 class="text-lg font-semibold">
           分组选项
         </h3>
-        <QHSelect
-          v-model="selectValue5"
-          label="分组选择器"
-          placeholder="请选择食物"
-          :options="fruits"
-        />
+        <div class="space-y-4">
+          <!-- 基础分组 -->
+          <QHSelect
+            v-model="selectValue5"
+            label="基础分组选择器"
+            placeholder="请选择食物"
+            :options="fruits"
+          />
+
+          <!-- 热带水果分组 -->
+          <QHSelect
+            v-model="selectValue2"
+            label="热带水果选择器"
+            label-orientation="horizontal"
+            placeholder="请选择水果"
+            :options="tropicalFruits"
+          />
+
+          <!-- 浆果分组 -->
+          <QHSelect
+            v-model="selectValue3"
+            label="浆果选择器"
+            placeholder="请选择浆果"
+            :options="berries"
+          />
+        </div>
       </div>
 
       <!-- 禁用状态 -->
@@ -216,7 +280,7 @@ const openSelect = ref(false)
           自定义样式
         </h3>
         <QHSelect
-          v-model="selectValue"
+          v-model="selectValue6"
           label="自定义样式选择器"
           :options="simpleFruits"
           label-class="text-blue-600 font-medium"

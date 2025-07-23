@@ -1,1 +1,1 @@
-export { default as Select, type SelectProps } from './Select.vue'
+export { default as Select, type SelectItemOption, type SelectOption, type SelectProps } from './Select.vue'

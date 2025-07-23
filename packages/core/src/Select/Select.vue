@@ -1,20 +1,25 @@
 <script lang="ts">
 import type { SelectRootProps } from 'reka-ui'
 
-export interface SelectOption {
+export interface SelectItemOption {
   value: string | number
   label: string
-  groupLabel?: string
   disabled?: boolean
+}
+
+export interface SelectOption {
+  label?: string
+  children: SelectItemOption[]
 }
 
 export interface SelectProps extends SelectRootProps {
   label?: string
+  labelOrientation?: 'horizontal' | 'vertical'
   placeholder?: string
   size?: 'sm' | 'md' | 'lg'
   variant?: 'primary' | 'secondary'
   disabled?: boolean
-  options?: SelectOption[][]
+  options?: SelectOption[]
   rootClass?: string
   labelClass?: string
   triggerClass?: string
@@ -42,6 +47,7 @@ import { computed } from 'vue'
 import { Icon } from '@/Icon'
 
 const props = withDefaults(defineProps<SelectProps>(), {
+  labelOrientation: 'vertical',
   size: 'md',
   variant: 'primary',
   disabled: false,
@@ -62,6 +68,7 @@ const openModel = defineModel<boolean>('open', {
 const selectExtendsProps = computed(() => {
   const {
     label,
+    labelOrientation,
     placeholder,
     size,
     variant,
@@ -87,6 +94,12 @@ const variantClass = computed(() => {
   return variantClassMap[props.variant]
 })
 
+const labelOrientationClass = computed(() => {
+  return props.labelOrientation === 'horizontal'
+    ? 'flex flex-row gap-2 items-center'
+    : 'flex flex-col gap-2  mb-1'
+})
+
 const sizeClass = computed(() => {
   const sizeClassMap = {
     sm: 'h-8 px-2 text-sm',
@@ -100,12 +113,12 @@ const sizeClass = computed(() => {
 <template>
   <div
     class="qh-select-container"
-    :class="rootClass"
+    :class="[rootClass, labelOrientationClass]"
   >
     <label
       v-if="label"
       :for="componentsId"
-      class="qh-select-label text-stone-700 dark:text-white block mb-1"
+      class="qh-select-label text-stone-700 dark:text-white block"
       :class="labelClass"
     >
       {{ label }}
@@ -139,23 +152,23 @@ const sizeClass = computed(() => {
           :side-offset="4"
         >
           <SelectViewport class="p-1">
-            <!-- 使用二维数组分组数据 -->
+            <!-- 使用 label 和 children 格式的分组数据 -->
             <template v-if="options && options.length > 0">
               <template
                 v-for="(group, groupIndex) in options"
                 :key="`group-${groupIndex}`"
               >
                 <SelectGroup>
-                  <!-- 分组标签，使用第一个选项的 groupLabel -->
+                  <!-- 分组标签 -->
                   <SelectLabel
-                    v-if="group[0]?.groupLabel"
+                    v-if="group.label"
                     class="px-2 py-1.5 text-sm font-semibold text-stone-700 dark:text-zinc-300"
                   >
-                    {{ group[0].groupLabel }}
+                    {{ group.label }}
                   </SelectLabel>
 
                   <SelectItem
-                    v-for="option in group"
+                    v-for="option in group.children"
                     :key="`${groupIndex}-${option.value}`"
                     :value="String(option.value)"
                     :disabled="option.disabled"

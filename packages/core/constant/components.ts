@@ -5,7 +5,7 @@ import type { InputProps } from '@/Input'
 import type { NumberFieldProps } from '@/NumberField'
 import type { PinInputProps } from '@/PinInput'
 import type { RadioGroupProps, RadioOption } from '@/RadioGroup'
-import type { SelectProps } from '@/Select'
+import type { SelectItemOption, SelectOption, SelectProps } from '@/Select'
 import type { SliderProps } from '@/Slider'
 import type { SwitchProps } from '@/Switch'
 // import type { IconProps } from '@/Icon'
@@ -45,6 +45,8 @@ export type {
   PinInputProps,
   RadioGroupProps,
   RadioOption,
+  SelectItemOption,
+  SelectOption,
   SelectProps,
   SliderProps,
   SwitchProps,
