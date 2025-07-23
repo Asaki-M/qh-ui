@@ -172,7 +172,7 @@ const sizeClass = computed(() => {
                     :key="`${groupIndex}-${option.value}`"
                     :value="String(option.value)"
                     :disabled="option.disabled"
-                    class="qh-select-item relative flex w-full cursor-pointer select-none items-center rounded px-2 py-1.5 text-sm outline-none focus:bg-stone-100 dark:focus:bg-zinc-800 data-[disabled]:pointer-events-none data-[disabled]:opacity-50"
+                    class="qh-select-item relative flex w-full cursor-pointer select-none items-center rounded px-2 py-1.5 text-sm outline-none dark:text-zinc-300 focus:bg-stone-100 dark:focus:bg-zinc-800 data-[disabled]:pointer-events-none data-[disabled]:opacity-50"
                     :class="itemClass"
                   >
                     <SelectItemIndicator class="absolute left-2 flex h-3.5 w-3.5 items-center justify-center">
