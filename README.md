@@ -10,7 +10,7 @@ TODO:
   - Slider [✔️]
   - Switch [✔️]
   - Select [✔️]
-  - Combobox
+  - Combobox [...]
 - General
   - Avatar [✔️]
   - Button [✔️]
