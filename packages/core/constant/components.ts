@@ -1,6 +1,7 @@
 import type { AvatarProps } from '@/Avatar'
 import type { ButtonProps } from '@/Button'
 import type { CheckboxProps } from '@/Checkbox'
+import type { ComboBoxOption, ComboBoxProps } from '@/ComboBox'
 import type { InputProps } from '@/Input'
 import type { NumberFieldProps } from '@/NumberField'
 import type { PinInputProps } from '@/PinInput'
@@ -12,6 +13,7 @@ import type { SwitchProps } from '@/Switch'
 import { Avatar } from '@/Avatar'
 import { Button } from '@/Button'
 import { Checkbox } from '@/Checkbox'
+import { ComboBox } from '@/ComboBox'
 import { Icon } from '@/Icon'
 import { Input } from '@/Input'
 import { NumberField } from '@/NumberField'
@@ -25,6 +27,7 @@ export {
   Avatar,
   Button,
   Checkbox,
+  ComboBox,
   Icon,
   Input,
   NumberField,
@@ -40,6 +43,8 @@ export type {
   AvatarProps,
   ButtonProps,
   CheckboxProps,
+  ComboBoxOption,
+  ComboBoxProps,
   InputProps,
   NumberFieldProps,
   PinInputProps,
