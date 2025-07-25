@@ -25,13 +25,14 @@ export interface ComboBoxOption {
   children: {
     label: string
     value: string
+    disabled?: boolean
   }[]
 }
 </script>
 
 <script setup lang="ts">
 import { ComboboxAnchor, ComboboxContent, ComboboxEmpty, ComboboxGroup, ComboboxInput, ComboboxItem, ComboboxItemIndicator, ComboboxLabel, ComboboxRoot, ComboboxSeparator, ComboboxTrigger, ComboboxViewport } from 'reka-ui'
-import { computed } from 'vue'
+import { computed, watch } from 'vue'
 import { Icon } from '@/Icon'
 
 const props = withDefaults(defineProps<ComboBoxProps>(), {
@@ -70,8 +71,9 @@ const restProps = computed(() => {
   return rest
 })
 
-const model = defineModel<string | number>({
-  required: true,
+const model = defineModel<string>({
+  required: false,
+  default: '',
 })
 
 const openModel = defineModel<boolean>('open', {
@@ -79,10 +81,36 @@ const openModel = defineModel<boolean>('open', {
   default: false,
 })
 
-const searchTermModel = defineModel<string>('searchTerm', {
+const searchTerm = defineModel<string>('searchTerm', {
   required: false,
   default: '',
 })
+
+function displayValue(value: string) {
+  if (!value)
+    return ''
+
+  for (const group of props.options) {
+    const foundOption = group.children.find(option => option.value === value)
+    if (foundOption) {
+      return foundOption.label
+    }
+  }
+  return value.toString()
+}
+// 计算显示的标签文本
+watch(() => model.value, (newValue) => {
+  if (!newValue)
+    return ''
+
+  searchTerm.value = displayValue(newValue.toString())
+})
+
+function handleBlur() {
+  if (model.value) {
+    searchTerm.value = displayValue(model.value)
+  }
+}
 </script>
 
 <template>
@@ -111,10 +139,11 @@ const searchTermModel = defineModel<string>('searchTerm', {
         :class="[variantClass, sizeClass, anchorClass]"
       >
         <ComboboxInput
-          v-model="searchTermModel"
-          class="qh-combobox-input !bg-transparent outline-none text-stone-900 dark:text-white h-full selection:bg-primary/20 placeholder:text-stone-400 dark:placeholder:text-zinc-500"
+          v-model="searchTerm"
+          class="qh-combobox-input !bg-transparent outline-none text-stone-900 dark:text-white h-full w-full selection:bg-primary/20 placeholder:text-stone-400 dark:placeholder:text-zinc-500"
           placeholder="Search..."
           :class="inputClass"
+          @blur="handleBlur"
         />
         <ComboboxTrigger
           class="qh-combobox-trigger"
@@ -154,6 +183,7 @@ const searchTermModel = defineModel<string>('searchTerm', {
                 v-for="option in group.children"
                 :key="option.label"
                 :value="option.value"
+                :disabled="option.disabled"
                 class="qh-combobox-content-item relative flex w-full cursor-pointer select-none items-center rounded px-2 py-1.5 text-sm outline-none text-stone-900 dark:text-zinc-300 focus:bg-stone-100 dark:focus:bg-zinc-800 data-[disabled]:pointer-events-none data-[disabled]:opacity-50 data-[highlighted]:bg-stone-100 dark:data-[highlighted]:bg-zinc-800"
                 :class="itemClass"
               >
