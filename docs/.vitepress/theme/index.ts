@@ -3,6 +3,7 @@ import DefaultTheme from 'vitepress/theme'
 // https://vitepress.dev/guide/custom-theme
 import { h } from 'vue'
 import './style.css'
+import 'qh-ui/index.css'
 
 export default {
   extends: DefaultTheme,

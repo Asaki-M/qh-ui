@@ -5,12 +5,11 @@ layout: home
 hero:
   name: "Qinghuan UI components"
   text: "A UI components library base on reka ui"
-  tagline: My great project tagline
   actions:
     - theme: brand
-      text: Markdown Examples
-      link: /markdown-examples
+      text: Getting Started
+      link: /content/markdown-examples
     - theme: alt
-      text: API Examples
-      link: /api-examples
+      text: Github
+      link: https://github.com/Asaki-M/qh-ui
 ---
