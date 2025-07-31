@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { Avatar } from 'qh-ui'
 import { ref } from 'vue'
-import BasicUsageLayout from '../components/BasicUsageLayout.vue'
+import BasicUsageLayout from '../../components/BasicUsageLayout.vue'
 
 const value = ref('')
 </script>
@@ -13,5 +13,7 @@ const value = ref('')
 
   <BasicUsageLayout>
     <Avatar size="lg" />
+
+    <template #code />
   </BasicUsageLayout>
 </template>

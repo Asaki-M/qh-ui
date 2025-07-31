@@ -11,10 +11,16 @@ const isVisableCode = ref(false)
       <Switch
         v-model="isVisableCode"
         label="View Code"
+        as="span"
       />
     </div>
-    <div class="w-full min-h-[400px] flex items-center justify-center rounded-2xl border border-neutral-300 dark:border-neutral-700 bg-neutral-200 dark:bg-neutral-800">
-      <slot />
+    <div class="w-full min-h-[400px] flex items-center justify-center rounded-2xl border border-zinc-200 dark:border-neutral-700 bg-zinc-50 dark:bg-neutral-800">
+      <template v-if="!isVisableCode">
+        <slot />
+      </template>
+      <template v-else>
+        <slot name="code" />
+      </template>
     </div>
   </div>
 </template>
