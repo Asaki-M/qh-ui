@@ -111,6 +111,15 @@
 .vp-doc div[class*='language-'], .vp-block {
   margin: 0;
   height: 100%;
-  width: 100%; 
+  width: 100%;
   background-color: var(--card);
+}
+
+/**
+ * QH-UI Component Styles Protection
+ * -------------------------------------------------------------------------- */
+
+/* 确保 QH-UI 组件样式不被 VitePress 覆盖 */
+.vp-doc [class*='qh-'] {
+  all: revert-layer;
 }

@@ -10,10 +10,18 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Guide', link: '/content/avatar' },
+      { text: 'Components', link: '/content/avatar' },
     ],
 
-    sidebar: [],
+    sidebar: [
+      {
+        text: 'Components',
+        items: [
+          { text: 'Avatar', link: '/content/avatar' },
+          { text: 'Button', link: '/content/button' },
+        ],
+      },
+    ],
 
     socialLinks: [
       { icon: 'github', link: 'https://github.com/Asaki-M/qh-ui' },
