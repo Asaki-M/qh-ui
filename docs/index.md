@@ -8,8 +8,8 @@ hero:
   actions:
     - theme: brand
       text: Getting Started
-      link: /content/markdown-examples
+      link: /content/avatar
     - theme: alt
-      text: Github
+      text: GitHub
       link: https://github.com/Asaki-M/qh-ui
 ---
