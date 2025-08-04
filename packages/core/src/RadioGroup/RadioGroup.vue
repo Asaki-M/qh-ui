@@ -60,7 +60,7 @@ const model = defineModel<string>()
       <RadioGroupItem
         :id="option.value"
         :disabled="props.disabled || option.disabled"
-        class="qh-radio-group-item-container bg-white rounded-full border border-primary shadow-sm outline-none transition-all"
+        class="qh-radio-group-item-container bg-white dark:bg-zinc-900 rounded-full border border-primary shadow-sm outline-none transition-all"
         :class="[
           sizeClasses,
           {

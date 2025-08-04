@@ -118,10 +118,5 @@ import { Button } from 'qh-ui'
     </template>
     Add Item
   </Button>
-
-  <!-- 点击事件 -->
-  <Button @click="handleClick">
-    Click Handler
-  </Button>
 </template>
 ```

@@ -54,7 +54,7 @@ function handleClick() {
 <template>
   <button
     :class="[variantClasses, sizeClasses, extraClass]"
-    class="qh-button rounded-md cursor-pointer transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 w-fit"
+    class="qh-button rounded-md cursor-pointer transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 w-fit dark:text-white"
     :disabled="disabled || loading"
     @click="handleClick"
   >

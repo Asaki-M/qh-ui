@@ -59,7 +59,7 @@ const variantClass = computed(() => {
         :key="id"
         :index="index"
         :disabled="disabled"
-        class="qh-pin-input-input w-12 h-12 text-center text-lg font-medium rounded focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all tabular-nums"
+        class="qh-pin-input-input w-12 h-12 text-center text-lg font-medium rounded focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all tabular-nums text-stone-900 dark:text-white"
         :class="[variantClass, inputClass]"
       />
     </div>

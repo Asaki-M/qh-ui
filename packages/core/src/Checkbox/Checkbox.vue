@@ -60,7 +60,7 @@ function handleChange(value: boolean) {
     <CheckboxRoot
       :checked="modelValue"
       :disabled="disabled"
-      class="qh-checkbox flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed bg-white border border-primary data-[state=checked]:bg-primary"
+      class="qh-checkbox flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed bg-white dark:bg-zinc-900 border border-primary data-[state=checked]:bg-primary"
       :class="[sizeClasses, checkboxClass]"
       @update:checked="handleChange"
     >
@@ -73,6 +73,9 @@ function handleChange(value: boolean) {
         />
       </CheckboxIndicator>
     </CheckboxRoot>
-    {{ label }}
+    <span
+      v-if="label"
+      class="text-stone-700 dark:text-white"
+    >{{ label }}</span>
   </label>
 </template>

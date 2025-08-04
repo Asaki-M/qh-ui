@@ -70,7 +70,7 @@ const variantClass = computed(() => {
         <Icon icon="line-md:minus" />
       </NumberFieldDecrement>
       <NumberFieldInput
-        class="qh-number-field-input bg-transparent w-16 tabular-nums text-center focus:outline-0 p-1"
+        class="qh-number-field-input bg-transparent w-16 tabular-nums text-center focus:outline-0 p-1 text-stone-900 dark:text-white"
         :class="inputClass"
       />
       <NumberFieldIncrement

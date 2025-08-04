@@ -100,7 +100,7 @@ const variantClass = computed(() => {
       v-bind="switchExtendsProps"
     >
       <SwitchThumb
-        class="qh-switch-thumb pointer-events-none block rounded-full bg-white shadow-sm ring-0 transition-transform data-[state=checked]:translate-x-full data-[state=unchecked]:translate-x-0"
+        class="qh-switch-thumb pointer-events-none block rounded-full bg-white dark:bg-zinc-100 shadow-sm ring-0 transition-transform data-[state=checked]:translate-x-full data-[state=unchecked]:translate-x-0"
         :class="[thumbSize, thumbClasses]"
       />
     </SwitchRoot>

@@ -88,6 +88,7 @@ const trackSize = computed(() => {
     <label
       v-if="label"
       :for="componentsId"
+      class="qh-slider-label text-stone-700 dark:text-white block mb-2"
       :class="labelClasses"
     >{{ label }}</label>
     <div
