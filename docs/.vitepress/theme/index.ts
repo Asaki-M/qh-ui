@@ -6,6 +6,7 @@ import { h } from 'vue'
 import ComponentPreview from '../components/ComponentPreview.vue'
 import 'qh-ui/index.css'
 import './style.css'
+import 'qh-ui/index.css'
 
 export default {
   extends: DefaultTheme,
