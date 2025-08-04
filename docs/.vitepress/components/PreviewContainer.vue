@@ -6,9 +6,8 @@ withDefaults(
   defineProps<{
     overflow?: boolean
     name?: string
-    files?: Record<string, string[]>
   }>(),
-  { name: '', files: () => ({}) },
+  { name: '' },
 )
 
 const isCodeView = ref(false)
@@ -16,7 +15,7 @@ const isCodeView = ref(false)
 
 <template>
   <div class="relative text-sm text-black my-4">
-    <div class="w-full flex justify-end">
+    <div class="w-full flex justify-end mb-4">
       <Switch
         v-model="isCodeView"
         as="span"
@@ -26,17 +25,15 @@ const isCodeView = ref(false)
 
     <div
       v-if="!isCodeView"
-      class="p-4 rounded-xl bg-zinc-200 dark:bg-zinc-800 backdrop-blur-2xl w-full relative items-center justify-center flex h-[400px]"
+      class="rounded-xl bg-card backdrop-blur-2xl w-full relative items-center justify-center flex h-[400px]"
       :class="{ 'overflow-x-auto': overflow }"
     >
-      <div class="w-full max-w-[700px] flex items-center justify-center">
-        <slot />
-      </div>
+      <slot />
     </div>
 
     <div
       v-else
-      class="p-4 h-[400px] overflow-y-auto rounded-xl bg-zinc-200 dark:bg-zinc-800 backdrop-blur-2xl w-full"
+      class="h-[400px] overflow-y-auto rounded-xl bg-card backdrop-blur-2xl w-full"
     >
       <slot name="codeSlot" />
     </div>

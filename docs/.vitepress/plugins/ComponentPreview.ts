@@ -1,50 +1,68 @@
 import type { MarkdownEnv, MarkdownRenderer } from 'vitepress'
 import { existsSync, readFileSync } from 'node:fs'
-import { dirname, resolve } from 'node:path'
+import { dirname, relative, resolve } from 'node:path'
 
 export default function (md: MarkdownRenderer) {
   md.core.ruler.before('normalize', 'component-preview', (state) => {
-    const insertComponentImport = (importString: string) => {
-      if (!state.src.includes('<script setup>')) {
-        state.src = `<script setup>\n${importString}\n</script>\n\n${state.src}`
-      }
-      else {
-        state.src = state.src.replace('</script>', `${importString}\n</script>`)
-      }
+    const { realPath, path: _path } = state.env as MarkdownEnv
+    const currentDir = dirname(realPath ?? _path)
+
+    // 找到 docs 根目录
+    const findDocsRoot = (dir: string): string => {
+      const parent = resolve(dir, '..')
+      return existsSync(resolve(dir, '.vitepress'))
+        ? dir
+        : parent === dir ? dir : findDocsRoot(parent)
     }
 
-    // Define the regular expression to match the desired pattern
-    const regex = /<ComponentPreview\s+name="([^"]+)"\s*\/>/g
+    const docsRoot = findDocsRoot(currentDir)
+    const demoDir = resolve(docsRoot, '.vitepress/demo')
 
-    // Iterate through the Markdown content and replace the pattern
-    state.src = state.src.replace(regex, (_, name) => {
-      const pathName = `./.vitepress/demo/${name}`
-      insertComponentImport(`import ${name} from '${pathName}.vue'`)
+    const insertImport = (importString: string) => {
+      const hasScript = state.src.includes('<script setup>')
+      state.src = hasScript
+        ? state.src.replace('</script>', `${importString}\n</script>`)
+        : `<script setup>\n${importString}\n</script>\n\n${state.src}`
+    }
 
-      const { realPath, path: _path } = state.env as MarkdownEnv
+    const createPreview = (name: string) => {
+      const demoPath = resolve(demoDir, `${name}.vue`)
 
-      // Check if demo file exists
-      const demoPath = resolve(dirname(realPath ?? _path), `${pathName}.vue`)
-      const fileExists = existsSync(demoPath)
-
-      if (!fileExists) {
+      if (!existsSync(demoPath)) {
         console.warn(`Demo file not found: ${demoPath}`)
         return `<div class="error">Demo file not found: ${name}.vue</div>`
       }
 
-      const groupedFiles = { demo: [`${name}.vue`] }
+      const relativePath = relative(currentDir, demoDir).replace(/\\/g, '/')
+      const importPath = `${relativePath}/${name}`
 
-      // 读取文件内容
-      let fileContent = ''
-      try {
-        fileContent = readFileSync(demoPath, 'utf-8')
-      }
-      catch (error) {
-        console.warn(`Failed to read demo file: ${demoPath}`, error)
-        fileContent = '// Failed to load file content'
-      }
+      insertImport(`import ${name} from '${importPath}.vue'`)
 
-      return `<ComponentPreview name="${name}" files="${encodeURIComponent(JSON.stringify(groupedFiles))}" >
+      const fileContent = (() => {
+        try {
+          return readFileSync(demoPath, 'utf-8')
+        }
+        catch (error) {
+          console.warn(`Failed to read demo file: ${demoPath}`, error)
+          return '// Failed to load file content'
+        }
+      })()
+
+      const files = JSON.stringify({ demo: [`${name}.vue`] })
+
+      return { files: encodeURIComponent(files), fileContent }
+    }
+
+    // 处理自闭合标签：<ComponentPreview name="xxx" />
+    state.src = state.src.replace(
+      /<ComponentPreview\s+name="([^"]+)"\s*\/>/g,
+      (_, name) => {
+        const result = createPreview(name)
+        if (typeof result === 'string')
+          return result
+
+        const { files, fileContent } = result
+        return `<ComponentPreview name="${name}" files="${files}">
 <${name} />
 
 <template #demo>
@@ -55,6 +73,36 @@ ${fileContent}
 
 </template>
 </ComponentPreview>`
-    })
+      },
+    )
+
+    // 处理带内容的标签：<ComponentPreview name="xxx">...</ComponentPreview>
+    state.src = state.src.replace(
+      /<ComponentPreview\s+name="([^"]+)"([^>]*)>([\s\S]*?)<\/ComponentPreview>/g,
+      (match, name, attributes, content) => {
+        if (attributes.includes('files='))
+          return match
+
+        const result = createPreview(name)
+        if (typeof result === 'string')
+          return result
+
+        const { files, fileContent } = result
+        const hasCodeSlot = content.includes('<template #demo>')
+
+        return hasCodeSlot
+          ? `<ComponentPreview name="${name}" files="${files}"${attributes}>${content}</ComponentPreview>`
+          : `<ComponentPreview name="${name}" files="${files}"${attributes}>${content}
+
+<template #demo>
+
+\`\`\`vue[${name}.vue]
+${fileContent}
+\`\`\`
+
+</template>
+</ComponentPreview>`
+      },
+    )
   })
 }

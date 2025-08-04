@@ -7,4 +7,9 @@ import { Avatar } from 'qh-ui'
     size="2xl"
     fallback="QH"
   />
+  <Avatar
+    size="2xl"
+    radius="full"
+    fallback="QH"
+  />
 </template>
