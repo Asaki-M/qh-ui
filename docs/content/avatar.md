@@ -22,17 +22,17 @@ import { Avatar } from 'qh-ui'
 
 ### Props
 
-| 属性 | 类型 | 默认值 | 描述 |
+| Property | Type | Default | Description |
 | --- | --- | --- | --- |
-| `size` | `'3xs' \| '2xs' \| 'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| '2xl' \| '3xl'` | `'md'` | 头像大小 |
-| `src` | `string` | `undefined` | 图片地址 |
-| `alt` | `string` | `undefined` | 图片alt文本 |
-| `fallback` | `string` | `undefined` | 加载失败时的占位符文本 |
-| `radius` | `'full' \| 'lg' \| 'md' \| 'sm'` | `'md'` | 圆角大小 |
+| `size` | `'3xs' \| '2xs' \| 'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| '2xl' \| '3xl'` | `'md'` | Avatar size |
+| `src` | `string` | `undefined` | Image source URL |
+| `alt` | `string` | `undefined` | Image alt text |
+| `fallback` | `string` | `undefined` | Fallback text when image fails to load |
+| `radius` | `'full' \| 'lg' \| 'md' \| 'sm'` | `'md'` | Border radius size |
 
-### Size 尺寸对照
+### Size Reference
 
-| Size | 尺寸 | Tailwind 类 |
+| Size | Dimensions | Tailwind Class |
 | --- | --- | --- |
 | `3xs` | 16px | `w-4 h-4` |
 | `2xs` | 20px | `w-5 h-5` |
@@ -46,42 +46,42 @@ import { Avatar } from 'qh-ui'
 
 ### Events
 
-Avatar 组件继承自 `reka-ui` 的 `AvatarImage` 组件，支持以下事件：
+The Avatar component inherits from `reka-ui`'s `AvatarImage` component and supports the following events:
 
-| 事件名 | 类型 | 描述 |
+| Event Name | Type | Description |
 | --- | --- | --- |
-| `loadingStatusChange` | `(status: 'idle' \| 'loading' \| 'loaded' \| 'error') => void` | 图片加载状态变化时触发 |
+| `loadingStatusChange` | `(status: 'idle' \| 'loading' \| 'loaded' \| 'error') => void` | Triggered when image loading status changes |
 
-### CSS 类名
+### CSS Classes
 
-组件提供以下 CSS 类名用于自定义样式：
+The component provides the following CSS classes for custom styling:
 
-| 类名 | 描述 |
+| Class Name | Description |
 | --- | --- |
-| `.qh-avatar-root` | 头像根容器 |
-| `.qh-avatar-image` | 头像图片元素 |
-| `.qh-avatar-fallback` | 头像占位符容器 |
+| `.qh-avatar-root` | Avatar root container |
+| `.qh-avatar-image` | Avatar image element |
+| `.qh-avatar-fallback` | Avatar fallback container |
 
-### 使用示例
+### Usage Examples
 
 ```vue
 <template>
-  <!-- 基础用法 -->
+  <!-- Basic usage -->
   <Avatar fallback="QH" />
 
-  <!-- 带图片 -->
+  <!-- With image -->
   <Avatar
     src="https://example.com/avatar.jpg"
-    alt="用户头像"
+    alt="User avatar"
     fallback="QH"
   />
 
-  <!-- 不同尺寸 -->
+  <!-- Different sizes -->
   <Avatar size="sm" fallback="S" />
   <Avatar size="lg" fallback="L" />
   <Avatar size="2xl" fallback="XL" />
 
-  <!-- 不同圆角 -->
+  <!-- Different radius -->
   <Avatar radius="full" fallback="QH" />
   <Avatar radius="sm" fallback="QH" />
 </template>

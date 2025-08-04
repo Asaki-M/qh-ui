@@ -27,30 +27,30 @@ const options = [
 
 ### Props
 
-| 属性 | 类型 | 默认值 | 描述 |
+| Property | Type | Default | Description |
 | --- | --- | --- | --- |
-| `v-model` | `string` | `undefined` | 选中的值 |
-| `options` | `ComboBoxOption[]` | `required` | 选项数据 |
-| `label` | `string` | `undefined` | 组件标签 |
-| `labelOrientation` | `'horizontal' \| 'vertical'` | `'vertical'` | 标签方向 |
-| `size` | `'sm' \| 'md' \| 'lg'` | `'md'` | 组件大小 |
-| `variant` | `'primary' \| 'secondary'` | `'primary'` | 样式变体 |
-| `disabled` | `boolean` | `false` | 是否禁用 |
-| `placeholder` | `string` | `undefined` | 输入框占位符 |
-| `rootClass` | `string` | `undefined` | 根容器额外类名 |
-| `labelClass` | `string` | `undefined` | 标签额外类名 |
-| `comboboxClass` | `string` | `undefined` | 组合框额外类名 |
-| `anchorClass` | `string` | `undefined` | 锚点额外类名 |
-| `inputClass` | `string` | `undefined` | 输入框额外类名 |
-| `triggerClass` | `string` | `undefined` | 触发器额外类名 |
-| `contentClass` | `string` | `undefined` | 内容容器额外类名 |
-| `itemClass` | `string` | `undefined` | 选项额外类名 |
+| `v-model` | `string` | `undefined` | Selected value |
+| `options` | `ComboBoxOption[]` | `required` | Options data |
+| `label` | `string` | `undefined` | Component label |
+| `labelOrientation` | `'horizontal' \| 'vertical'` | `'vertical'` | Label orientation |
+| `size` | `'sm' \| 'md' \| 'lg'` | `'md'` | Component size |
+| `variant` | `'primary' \| 'secondary'` | `'primary'` | Style variant |
+| `disabled` | `boolean` | `false` | Whether the component is disabled |
+| `placeholder` | `string` | `undefined` | Input placeholder text |
+| `rootClass` | `string` | `undefined` | Additional CSS class for root container |
+| `labelClass` | `string` | `undefined` | Additional CSS class for label |
+| `comboboxClass` | `string` | `undefined` | Additional CSS class for combobox |
+| `anchorClass` | `string` | `undefined` | Additional CSS class for anchor |
+| `inputClass` | `string` | `undefined` | Additional CSS class for input |
+| `triggerClass` | `string` | `undefined` | Additional CSS class for trigger |
+| `contentClass` | `string` | `undefined` | Additional CSS class for content container |
+| `itemClass` | `string` | `undefined` | Additional CSS class for items |
 
 ### Types
 
 ```typescript
 interface ComboBoxOption {
-  label?: string // 分组标签
+  label?: string // Group label
   children: {
     label: string
     value: string
@@ -59,9 +59,9 @@ interface ComboBoxOption {
 }
 ```
 
-### Size 尺寸对照
+### Size Reference
 
-| Size | 高度 | 内边距 | 字体大小 |
+| Size | Height | Padding | Font Size |
 | --- | --- | --- | --- |
 | `sm` | `32px` | `8px 12px` | `14px` |
 | `md` | `40px` | `12px 16px` | `16px` |
@@ -69,24 +69,24 @@ interface ComboBoxOption {
 
 ### Events
 
-| 事件名 | 类型 | 描述 |
+| Event Name | Type | Description |
 | --- | --- | --- |
-| `update:modelValue` | `(value: string) => void` | 选中值变化时触发 |
-| `update:searchTerm` | `(term: string) => void` | 搜索词变化时触发 |
+| `update:modelValue` | `(value: string) => void` | Triggered when selected value changes |
+| `update:searchTerm` | `(term: string) => void` | Triggered when search term changes |
 
-### CSS 类名
+### CSS Classes
 
-| 类名 | 描述 |
+| Class Name | Description |
 | --- | --- |
-| `.qh-combobox-root` | 组合框根容器 |
-| `.qh-combobox-label` | 组合框标签 |
-| `.qh-combobox-anchor` | 组合框锚点 |
-| `.qh-combobox-input` | 组合框输入框 |
-| `.qh-combobox-trigger` | 组合框触发器 |
-| `.qh-combobox-content` | 下拉内容容器 |
-| `.qh-combobox-item` | 选项元素 |
+| `.qh-combobox-root` | Combobox root container |
+| `.qh-combobox-label` | Combobox label |
+| `.qh-combobox-anchor` | Combobox anchor |
+| `.qh-combobox-input` | Combobox input |
+| `.qh-combobox-trigger` | Combobox trigger |
+| `.qh-combobox-content` | Dropdown content container |
+| `.qh-combobox-item` | Option items |
 
-### 使用示例
+### Usage Examples
 
 ```vue
 <script setup>
@@ -96,7 +96,7 @@ import { ref } from 'vue'
 const selectedFruit = ref('')
 const selectedCountry = ref('')
 
-// 简单选项
+// Simple options
 const fruits = [
   {
     children: [
@@ -109,7 +109,7 @@ const fruits = [
   }
 ]
 
-// 分组选项
+// Grouped options
 const countries = [
   {
     label: 'Asia',
@@ -131,14 +131,14 @@ const countries = [
 </script>
 
 <template>
-  <!-- 基础用法 -->
+  <!-- Basic usage -->
   <ComboBox
     v-model="selectedFruit"
     :options="fruits"
     placeholder="Search fruits..."
   />
 
-  <!-- 带标签 -->
+  <!-- With label -->
   <ComboBox
     v-model="selectedCountry"
     :options="countries"
@@ -146,12 +146,12 @@ const countries = [
     placeholder="Search countries..."
   />
 
-  <!-- 不同尺寸 -->
+  <!-- Different sizes -->
   <ComboBox v-model="selectedFruit" :options="fruits" size="sm" />
   <ComboBox v-model="selectedFruit" :options="fruits" size="md" />
   <ComboBox v-model="selectedFruit" :options="fruits" size="lg" />
 
-  <!-- 水平标签 -->
+  <!-- Horizontal label -->
   <ComboBox
     v-model="selectedFruit"
     :options="fruits"
@@ -159,7 +159,7 @@ const countries = [
     label-orientation="horizontal"
   />
 
-  <!-- 禁用状态 -->
+  <!-- Disabled state -->
   <ComboBox
     v-model="selectedFruit"
     :options="fruits"

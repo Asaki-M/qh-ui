@@ -19,27 +19,27 @@ import { Button } from 'qh-ui'
 
 ### Props
 
-| 属性 | 类型 | 默认值 | 描述 |
+| Property | Type | Default | Description |
 | --- | --- | --- | --- |
-| `variant` | `'primary' \| 'secondary' \| 'outline' \| 'ghost' \| 'link'` | `'primary'` | 按钮样式变体 |
-| `size` | `'sm' \| 'md' \| 'lg'` | `'md'` | 按钮大小 |
-| `disabled` | `boolean` | `false` | 是否禁用按钮 |
-| `loading` | `boolean` | `false` | 是否显示加载状态 |
-| `extraClass` | `string` | `''` | 额外的 CSS 类名 |
+| `variant` | `'primary' \| 'secondary' \| 'outline' \| 'ghost' \| 'link'` | `'primary'` | Button style variant |
+| `size` | `'sm' \| 'md' \| 'lg'` | `'md'` | Button size |
+| `disabled` | `boolean` | `false` | Whether the button is disabled |
+| `loading` | `boolean` | `false` | Whether to show loading state |
+| `extraClass` | `string` | `''` | Additional CSS class names |
 
-### Variant 样式对照
+### Variant Reference
 
-| Variant | 样式描述 | CSS 类 |
+| Variant | Style Description | CSS Classes |
 | --- | --- | --- |
-| `primary` | 主要按钮，蓝色背景白色文字 | `bg-primary text-white` |
-| `secondary` | 次要按钮，灰色背景 | `bg-secondary` |
-| `outline` | 边框按钮，透明背景蓝色边框 | `bg-transparent border border-primary text-primary` |
-| `ghost` | 幽灵按钮，透明背景悬停变色 | `bg-transparent text-primary hover:bg-secondary` |
-| `link` | 链接样式，透明背景悬停下划线 | `bg-transparent text-primary hover:underline` |
+| `primary` | Primary button with primary background and white text | `bg-primary text-white` |
+| `secondary` | Secondary button with secondary background | `bg-secondary` |
+| `outline` | Outline button with transparent background and primary border | `bg-transparent border border-primary text-primary` |
+| `ghost` | Ghost button with transparent background and hover effect | `bg-transparent text-primary hover:bg-secondary` |
+| `link` | Link-style button with transparent background and underline on hover | `bg-transparent text-primary hover:underline` |
 
-### Size 尺寸对照
+### Size Reference
 
-| Size | 高度 | 内边距 | 字体大小 |
+| Size | Height | Padding | Font Size |
 | --- | --- | --- | --- |
 | `sm` | 32px | `p-1` | `text-sm` |
 | `md` | 40px | `px-2 py-1` | `text-base` |
@@ -47,35 +47,35 @@ import { Button } from 'qh-ui'
 
 ### Events
 
-| 事件名 | 类型 | 描述 |
+| Event Name | Type | Description |
 | --- | --- | --- |
-| `click` | `() => void` | 按钮点击时触发（禁用或加载状态下不触发） |
+| `click` | `() => void` | Triggered when button is clicked (not triggered when disabled or loading) |
 
 ### Slots
 
-| 插槽名 | 描述 |
+| Slot Name | Description |
 | --- | --- |
-| `default` | 按钮的主要内容 |
-| `prefix` | 按钮内容前的插槽 |
-| `suffix` | 按钮内容后的插槽 |
+| `default` | Main content of the button |
+| `prefix` | Slot before button content |
+| `suffix` | Slot after button content |
 
-### CSS 类名
+### CSS Classes
 
-组件提供以下 CSS 类名用于自定义样式：
+The component provides the following CSS classes for custom styling:
 
-| 类名 | 描述 |
+| Class Name | Description |
 | --- | --- |
-| `.qh-button` | 按钮根容器 |
-| `.qh-button-loading` | 加载图标样式 |
+| `.qh-button` | Button root container |
+| `.qh-button-loading` | Loading icon styles |
 
-### 使用示例
+### Usage Examples
 
 ```vue
 <template>
-  <!-- 基础用法 -->
+  <!-- Basic usage -->
   <Button>Click me</Button>
 
-  <!-- 不同变体 -->
+  <!-- Different variants -->
   <Button variant="primary">
     Primary
   </Button>
@@ -92,7 +92,7 @@ import { Button } from 'qh-ui'
     Link
   </Button>
 
-  <!-- 不同尺寸 -->
+  <!-- Different sizes -->
   <Button size="sm">
     Small
   </Button>
@@ -103,7 +103,7 @@ import { Button } from 'qh-ui'
     Large
   </Button>
 
-  <!-- 状态 -->
+  <!-- States -->
   <Button disabled>
     Disabled
   </Button>
@@ -111,7 +111,7 @@ import { Button } from 'qh-ui'
     Loading
   </Button>
 
-  <!-- 带插槽 -->
+  <!-- With slots -->
   <Button>
     <template #prefix>
       <Icon icon="mdi:plus" />

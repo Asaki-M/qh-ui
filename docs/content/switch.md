@@ -16,22 +16,22 @@ const switchValue = ref(false)
 
 ### Props
 
-| 属性 | 类型 | 默认值 | 描述 |
+| Property | Type | Default | Description |
 | --- | --- | --- | --- |
-| `v-model` | `boolean` | `required` | 开关状态 |
-| `label` | `string` | `undefined` | 开关标签文本 |
-| `labelPosition` | `'left' \| 'right'` | `'right'` | 标签位置 |
-| `size` | `'sm' \| 'md' \| 'lg'` | `'md'` | 开关大小 |
-| `variant` | `'primary' \| 'secondary'` | `'primary'` | 开关样式变体 |
-| `disabled` | `boolean` | `false` | 是否禁用 |
-| `containerClasses` | `string` | `undefined` | 容器额外类名 |
-| `labelClasses` | `string` | `undefined` | 标签额外类名 |
-| `switchClasses` | `string` | `undefined` | 开关额外类名 |
-| `thumbClasses` | `string` | `undefined` | 滑块额外类名 |
+| `v-model` | `boolean` | `required` | Switch state |
+| `label` | `string` | `undefined` | Switch label text |
+| `labelPosition` | `'left' \| 'right'` | `'right'` | Label position |
+| `size` | `'sm' \| 'md' \| 'lg'` | `'md'` | Switch size |
+| `variant` | `'primary' \| 'secondary'` | `'primary'` | Switch style variant |
+| `disabled` | `boolean` | `false` | Whether the switch is disabled |
+| `containerClasses` | `string` | `undefined` | Additional CSS class for container |
+| `labelClasses` | `string` | `undefined` | Additional CSS class for label |
+| `switchClasses` | `string` | `undefined` | Additional CSS class for switch |
+| `thumbClasses` | `string` | `undefined` | Additional CSS class for thumb |
 
-### Size 尺寸对照
+### Size Reference
 
-| Size | 开关尺寸 | 滑块尺寸 |
+| Size | Switch Size | Thumb Size |
 | --- | --- | --- |
 | `sm` | `32px × 16px` | `12px × 12px` |
 | `md` | `40px × 20px` | `16px × 16px` |
@@ -39,23 +39,23 @@ const switchValue = ref(false)
 
 ### Events
 
-Switch 组件继承自 `reka-ui` 的 `SwitchRoot` 组件，支持以下事件：
+The Switch component inherits from `reka-ui`'s `SwitchRoot` component and supports the following events:
 
-| 事件名 | 类型 | 描述 |
+| Event Name | Type | Description |
 | --- | --- | --- |
-| `update:modelValue` | `(value: boolean) => void` | 开关状态变化时触发 |
+| `update:modelValue` | `(value: boolean) => void` | Triggered when switch state changes |
 
-### CSS 类名
+### CSS Classes
 
-组件提供以下 CSS 类名用于自定义样式：
+The component provides the following CSS classes for custom styling:
 
-| 类名 | 描述 |
+| Class Name | Description |
 | --- | --- |
-| `.qh-switch-label` | 开关标签 |
-| `.qh-switch-root` | 开关根容器 |
-| `.qh-switch-thumb` | 开关滑块 |
+| `.qh-switch-label` | Switch label |
+| `.qh-switch-root` | Switch root container |
+| `.qh-switch-thumb` | Switch thumb |
 
-### 使用示例
+### Usage Examples
 
 ```vue
 <script setup>
@@ -67,32 +67,32 @@ const isDarkMode = ref(true)
 </script>
 
 <template>
-  <!-- 基础用法 -->
+  <!-- Basic usage -->
   <Switch v-model="isEnabled" />
 
-  <!-- 带标签 -->
+  <!-- With label -->
   <Switch v-model="isEnabled" label="Enable feature" />
 
-  <!-- 标签在左侧 -->
+  <!-- Label on left -->
   <Switch
     v-model="isDarkMode"
     label="Dark mode"
     label-position="left"
   />
 
-  <!-- 不同尺寸 -->
+  <!-- Different sizes -->
   <Switch v-model="isEnabled" size="sm" label="Small" />
   <Switch v-model="isEnabled" size="md" label="Medium" />
   <Switch v-model="isEnabled" size="lg" label="Large" />
 
-  <!-- 不同变体 -->
+  <!-- Different variants -->
   <Switch v-model="isEnabled" variant="primary" label="Primary" />
   <Switch v-model="isEnabled" variant="secondary" label="Secondary" />
 
-  <!-- 禁用状态 -->
+  <!-- Disabled state -->
   <Switch v-model="isEnabled" disabled label="Disabled" />
 
-  <!-- 自定义样式 -->
+  <!-- Custom styling -->
   <Switch
     v-model="isEnabled"
     label="Custom style"

@@ -18,24 +18,24 @@ const passwordValue = ref('')
 
 ### Props
 
-| 属性 | 类型 | 默认值 | 描述 |
+| Property | Type | Default | Description |
 | --- | --- | --- | --- |
-| `v-model` | `string` | `required` | 输入框的值 |
-| `type` | `'text' \| 'password' \| 'email' \| 'tel' \| 'url' \| 'search'` | `'text'` | 输入框类型 |
-| `placeholder` | `string` | `undefined` | 占位符文本 |
-| `label` | `string` | `undefined` | 输入框标签 |
-| `disabled` | `boolean` | `false` | 是否禁用 |
-| `readonly` | `boolean` | `false` | 是否只读 |
-| `variant` | `'primary' \| 'secondary'` | `'primary'` | 输入框样式变体 |
-| `size` | `'sm' \| 'md' \| 'lg'` | `'md'` | 输入框大小 |
-| `rootClass` | `string` | `undefined` | 根容器额外类名 |
-| `labelClass` | `string` | `undefined` | 标签额外类名 |
-| `inputContainerClass` | `string` | `undefined` | 输入容器额外类名 |
-| `inputClass` | `string` | `undefined` | 输入框额外类名 |
+| `v-model` | `string` | `required` | Input value |
+| `type` | `'text' \| 'password' \| 'email' \| 'tel' \| 'url' \| 'search'` | `'text'` | Input type |
+| `placeholder` | `string` | `undefined` | Placeholder text |
+| `label` | `string` | `undefined` | Input label |
+| `disabled` | `boolean` | `false` | Whether the input is disabled |
+| `readonly` | `boolean` | `false` | Whether the input is readonly |
+| `variant` | `'primary' \| 'secondary'` | `'primary'` | Input style variant |
+| `size` | `'sm' \| 'md' \| 'lg'` | `'md'` | Input size |
+| `rootClass` | `string` | `undefined` | Additional CSS class for root container |
+| `labelClass` | `string` | `undefined` | Additional CSS class for label |
+| `inputContainerClass` | `string` | `undefined` | Additional CSS class for input container |
+| `inputClass` | `string` | `undefined` | Additional CSS class for input |
 
-### Size 尺寸对照
+### Size Reference
 
-| Size | 内边距 | 字体大小 |
+| Size | Padding | Font Size |
 | --- | --- | --- |
 | `sm` | `8px 8px 4px 4px` | `14px` |
 | `md` | `12px 12px 8px 8px` | `16px` |
@@ -43,29 +43,29 @@ const passwordValue = ref('')
 
 ### Events
 
-| 事件名 | 类型 | 描述 |
+| Event Name | Type | Description |
 | --- | --- | --- |
-| `update:modelValue` | `(value: string) => void` | 输入值变化时触发 |
+| `update:modelValue` | `(value: string) => void` | Triggered when input value changes |
 
 ### Slots
 
-| 插槽名 | 描述 |
+| Slot Name | Description |
 | --- | --- |
-| `prefix` | 输入框前缀内容 |
-| `suffix` | 输入框后缀内容 |
+| `prefix` | Content before the input |
+| `suffix` | Content after the input |
 
-### CSS 类名
+### CSS Classes
 
-组件提供以下 CSS 类名用于自定义样式：
+The component provides the following CSS classes for custom styling:
 
-| 类名 | 描述 |
+| Class Name | Description |
 | --- | --- |
-| `.qh-input-container` | 输入框根容器 |
-| `.qh-input-label` | 输入框标签 |
-| `.qh-input-input-container` | 输入框容器 |
-| `.qh-input-input` | 输入框元素 |
+| `.qh-input-container` | Input root container |
+| `.qh-input-label` | Input label |
+| `.qh-input-input-container` | Input container |
+| `.qh-input-input` | Input element |
 
-### 使用示例
+### Usage Examples
 
 ```vue
 <script setup>
@@ -79,10 +79,10 @@ const search = ref('')
 </script>
 
 <template>
-  <!-- 基础用法 -->
+  <!-- Basic usage -->
   <Input v-model="username" placeholder="Enter username" />
 
-  <!-- 带标签 -->
+  <!-- With label -->
   <Input
     v-model="email"
     type="email"
@@ -90,20 +90,20 @@ const search = ref('')
     placeholder="your@email.com"
   />
 
-  <!-- 不同类型 -->
+  <!-- Different types -->
   <Input v-model="password" type="password" label="Password" />
   <Input v-model="search" type="search" placeholder="Search..." />
 
-  <!-- 不同尺寸 -->
+  <!-- Different sizes -->
   <Input v-model="username" size="sm" placeholder="Small" />
   <Input v-model="username" size="md" placeholder="Medium" />
   <Input v-model="username" size="lg" placeholder="Large" />
 
-  <!-- 状态 -->
+  <!-- States -->
   <Input v-model="username" disabled placeholder="Disabled" />
   <Input v-model="username" readonly placeholder="Readonly" />
 
-  <!-- 带插槽 -->
+  <!-- With slots -->
   <Input v-model="search" placeholder="Search...">
     <template #prefix>
       <Icon icon="mdi:magnify" />
@@ -113,7 +113,7 @@ const search = ref('')
     </template>
   </Input>
 
-  <!-- 自定义样式 -->
+  <!-- Custom styling -->
   <Input
     v-model="username"
     label="Custom Input"

@@ -16,40 +16,40 @@ const pinValue = ref(['', '', '', '', '', ''])
 
 ### Props
 
-| 属性 | 类型 | 默认值 | 描述 |
+| Property | Type | Default | Description |
 | --- | --- | --- | --- |
-| `v-model` | `string[] \| number[]` | `required` | PIN 输入的值数组 |
-| `length` | `number` | `6` | PIN 输入框的数量 |
-| `type` | `'text' \| 'number'` | `'text'` | 输入类型 |
-| `placeholder` | `string` | `undefined` | 占位符 |
-| `mask` | `boolean` | `false` | 是否遮盖输入内容（密码模式） |
-| `otp` | `boolean` | `false` | 是否为一次性密码模式 |
-| `disabled` | `boolean` | `false` | 是否禁用 |
-| `variant` | `'primary' \| 'secondary'` | `'primary'` | 样式变体 |
-| `rootClass` | `string` | `undefined` | 根容器额外类名 |
-| `labelClass` | `string` | `undefined` | 标签额外类名 |
-| `containerClass` | `string` | `undefined` | 容器额外类名 |
-| `inputClass` | `string` | `undefined` | 输入框额外类名 |
+| `v-model` | `string[] \| number[]` | `required` | PIN input value array |
+| `length` | `number` | `6` | Number of PIN input fields |
+| `type` | `'text' \| 'number'` | `'text'` | Input type |
+| `placeholder` | `string` | `undefined` | Placeholder text |
+| `mask` | `boolean` | `false` | Whether to mask input content (password mode) |
+| `otp` | `boolean` | `false` | Whether it's one-time password mode |
+| `disabled` | `boolean` | `false` | Whether the component is disabled |
+| `variant` | `'primary' \| 'secondary'` | `'primary'` | Style variant |
+| `rootClass` | `string` | `undefined` | Additional CSS class for root container |
+| `labelClass` | `string` | `undefined` | Additional CSS class for label |
+| `containerClass` | `string` | `undefined` | Additional CSS class for container |
+| `inputClass` | `string` | `undefined` | Additional CSS class for input |
 
 ### Events
 
-PinInput 组件继承自 `reka-ui` 的 `PinInputRoot` 组件，支持以下事件：
+The PinInput component inherits from `reka-ui`'s `PinInputRoot` component and supports the following events:
 
-| 事件名 | 类型 | 描述 |
+| Event Name | Type | Description |
 | --- | --- | --- |
-| `update:modelValue` | `(value: string[] \| number[]) => void` | PIN 值变化时触发 |
-| `complete` | `(value: string[] \| number[]) => void` | PIN 输入完成时触发 |
+| `update:modelValue` | `(value: string[] \| number[]) => void` | Triggered when PIN value changes |
+| `complete` | `(value: string[] \| number[]) => void` | Triggered when PIN input is complete |
 
-### CSS 类名
+### CSS Classes
 
-组件提供以下 CSS 类名用于自定义样式：
+The component provides the following CSS classes for custom styling:
 
-| 类名 | 描述 |
+| Class Name | Description |
 | --- | --- |
-| `.qh-pin-input-root` | PIN 输入根容器 |
-| `.qh-pin-input-input` | 单个输入框 |
+| `.qh-pin-input-root` | PIN input root container |
+| `.qh-pin-input-input` | Individual input field |
 
-### 使用示例
+### Usage Examples
 
 ```vue
 <script setup>
@@ -62,10 +62,10 @@ const numberPin = ref([0, 0, 0, 0])
 </script>
 
 <template>
-  <!-- 基础用法 -->
+  <!-- Basic usage -->
   <PinInput v-model="verificationCode" :length="6" />
 
-  <!-- 验证码输入 -->
+  <!-- Verification code input -->
   <PinInput
     v-model="verificationCode"
     :length="6"
@@ -73,7 +73,7 @@ const numberPin = ref([0, 0, 0, 0])
     otp
   />
 
-  <!-- 密码模式 -->
+  <!-- Password mode -->
   <PinInput
     v-model="password"
     :length="4"
@@ -81,7 +81,7 @@ const numberPin = ref([0, 0, 0, 0])
     placeholder="•"
   />
 
-  <!-- 数字类型 -->
+  <!-- Number type -->
   <PinInput
     v-model="numberPin"
     :length="4"
@@ -89,7 +89,7 @@ const numberPin = ref([0, 0, 0, 0])
     placeholder="0"
   />
 
-  <!-- 不同变体 -->
+  <!-- Different variants -->
   <PinInput
     v-model="verificationCode"
     variant="primary"
@@ -101,14 +101,14 @@ const numberPin = ref([0, 0, 0, 0])
     :length="6"
   />
 
-  <!-- 禁用状态 -->
+  <!-- Disabled state -->
   <PinInput
     v-model="verificationCode"
     :length="6"
     disabled
   />
 
-  <!-- 自定义样式 -->
+  <!-- Custom styling -->
   <PinInput
     v-model="verificationCode"
     :length="6"
@@ -118,9 +118,9 @@ const numberPin = ref([0, 0, 0, 0])
 </template>
 ```
 
-### 使用场景
+### Use Cases
 
-- **验证码输入**: 短信验证码、邮箱验证码
-- **密码输入**: PIN 码、安全密码
-- **身份验证**: 二次验证、安全确认
-- **游戏**: 房间号输入、邀请码输入
+- **Verification Code Input**: SMS verification codes, email verification codes
+- **Password Input**: PIN codes, security passwords
+- **Identity Verification**: Two-factor authentication, security confirmation
+- **Gaming**: Room number input, invitation code input

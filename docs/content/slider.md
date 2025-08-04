@@ -18,26 +18,26 @@ const value2 = ref([50])
 
 ### Props
 
-| 属性 | 类型 | 默认值 | 描述 |
+| Property | Type | Default | Description |
 | --- | --- | --- | --- |
-| `v-model` | `number[]` | `required` | 滑块的值（数组形式） |
-| `label` | `string` | `undefined` | 滑块标签 |
-| `labelOrientation` | `'horizontal' \| 'vertical'` | `'vertical'` | 标签方向 |
-| `size` | `'sm' \| 'md' \| 'lg'` | `'md'` | 滑块大小 |
-| `min` | `number` | `0` | 最小值 |
-| `max` | `number` | `100` | 最大值 |
-| `step` | `number` | `1` | 步长 |
-| `disabled` | `boolean` | `false` | 是否禁用 |
-| `orientation` | `'horizontal' \| 'vertical'` | `'horizontal'` | 滑块方向 |
-| `containerClasses` | `string` | `undefined` | 容器额外类名 |
-| `labelClasses` | `string` | `undefined` | 标签额外类名 |
-| `sliderClasses` | `string` | `undefined` | 滑块额外类名 |
-| `trackClasses` | `string` | `undefined` | 轨道额外类名 |
-| `thumbClasses` | `string` | `undefined` | 滑块手柄额外类名 |
+| `v-model` | `number[]` | `required` | Slider value (array format) |
+| `label` | `string` | `undefined` | Slider label |
+| `labelOrientation` | `'horizontal' \| 'vertical'` | `'vertical'` | Label orientation |
+| `size` | `'sm' \| 'md' \| 'lg'` | `'md'` | Slider size |
+| `min` | `number` | `0` | Minimum value |
+| `max` | `number` | `100` | Maximum value |
+| `step` | `number` | `1` | Step value |
+| `disabled` | `boolean` | `false` | Whether the slider is disabled |
+| `orientation` | `'horizontal' \| 'vertical'` | `'horizontal'` | Slider orientation |
+| `containerClasses` | `string` | `undefined` | Additional CSS class for container |
+| `labelClasses` | `string` | `undefined` | Additional CSS class for label |
+| `sliderClasses` | `string` | `undefined` | Additional CSS class for slider |
+| `trackClasses` | `string` | `undefined` | Additional CSS class for track |
+| `thumbClasses` | `string` | `undefined` | Additional CSS class for thumb |
 
-### Size 尺寸对照
+### Size Reference
 
-| Size | 轨道高度 | 手柄大小 |
+| Size | Track Height | Thumb Size |
 | --- | --- | --- |
 | `sm` | `4px` | `16px × 16px` |
 | `md` | `6px` | `20px × 20px` |
@@ -45,26 +45,26 @@ const value2 = ref([50])
 
 ### Events
 
-Slider 组件继承自 `reka-ui` 的 `SliderRoot` 组件，支持以下事件：
+The Slider component inherits from `reka-ui`'s `SliderRoot` component and supports the following events:
 
-| 事件名 | 类型 | 描述 |
+| Event Name | Type | Description |
 | --- | --- | --- |
-| `update:modelValue` | `(value: number[]) => void` | 滑块值变化时触发 |
-| `valueCommit` | `(value: number[]) => void` | 滑块值提交时触发（拖拽结束） |
+| `update:modelValue` | `(value: number[]) => void` | Triggered when slider value changes |
+| `valueCommit` | `(value: number[]) => void` | Triggered when slider value is committed (drag end) |
 
-### CSS 类名
+### CSS Classes
 
-组件提供以下 CSS 类名用于自定义样式：
+The component provides the following CSS classes for custom styling:
 
-| 类名 | 描述 |
+| Class Name | Description |
 | --- | --- |
-| `.qh-slider-root` | 滑块根容器 |
-| `.qh-slider-label` | 滑块标签 |
-| `.qh-slider-track` | 滑块轨道 |
-| `.qh-slider-range` | 滑块范围 |
-| `.qh-slider-thumb` | 滑块手柄 |
+| `.qh-slider-root` | Slider root container |
+| `.qh-slider-label` | Slider label |
+| `.qh-slider-track` | Slider track |
+| `.qh-slider-range` | Slider range |
+| `.qh-slider-thumb` | Slider thumb |
 
-### 使用示例
+### Usage Examples
 
 ```vue
 <script setup>
@@ -78,10 +78,10 @@ const temperature = ref([22])
 </script>
 
 <template>
-  <!-- 基础用法 -->
+  <!-- Basic usage -->
   <Slider v-model="volume" :max="100" />
 
-  <!-- 带标签 -->
+  <!-- With label -->
   <Slider
     v-model="volume"
     label="Volume"
@@ -89,7 +89,7 @@ const temperature = ref([22])
     :step="5"
   />
 
-  <!-- 范围滑块 -->
+  <!-- Range slider -->
   <Slider
     v-model="priceRange"
     label="Price Range ($)"
@@ -98,12 +98,12 @@ const temperature = ref([22])
     :step="10"
   />
 
-  <!-- 不同尺寸 -->
+  <!-- Different sizes -->
   <Slider v-model="brightness" size="sm" label="Small" :max="100" />
   <Slider v-model="brightness" size="md" label="Medium" :max="100" />
   <Slider v-model="brightness" size="lg" label="Large" :max="100" />
 
-  <!-- 水平标签 -->
+  <!-- Horizontal label -->
   <Slider
     v-model="temperature"
     label="Temperature:"
@@ -113,7 +113,7 @@ const temperature = ref([22])
     :step="0.5"
   />
 
-  <!-- 垂直滑块 -->
+  <!-- Vertical slider -->
   <div class="h-48">
     <Slider
       v-model="volume"
@@ -123,7 +123,7 @@ const temperature = ref([22])
     />
   </div>
 
-  <!-- 禁用状态 -->
+  <!-- Disabled state -->
   <Slider
     v-model="volume"
     disabled

@@ -22,18 +22,18 @@ const checked3 = ref(false)
 
 ### Props
 
-| 属性 | 类型 | 默认值 | 描述 |
+| Property | Type | Default | Description |
 | --- | --- | --- | --- |
-| `v-model` | `boolean` | `false` | 复选框选中状态 |
-| `label` | `string` | `''` | 复选框标签文本 |
-| `disabled` | `boolean` | `false` | 是否禁用 |
-| `size` | `'sm' \| 'md' \| 'lg'` | `'md'` | 复选框大小 |
-| `checkboxClass` | `string` | `''` | 复选框额外类名 |
-| `labelClass` | `string` | `''` | 标签额外类名 |
+| `v-model` | `boolean` | `false` | Checkbox checked state |
+| `label` | `string` | `''` | Checkbox label text |
+| `disabled` | `boolean` | `false` | Whether the checkbox is disabled |
+| `size` | `'sm' \| 'md' \| 'lg'` | `'md'` | Checkbox size |
+| `checkboxClass` | `string` | `''` | Additional CSS class for checkbox |
+| `labelClass` | `string` | `''` | Additional CSS class for label |
 
-### Size 尺寸对照
+### Size Reference
 
-| Size | 尺寸 | 图标大小 | 圆角 |
+| Size | Dimensions | Icon Size | Border Radius |
 | --- | --- | --- | --- |
 | `sm` | `16px × 16px` | `12px × 12px` | `rounded-sm` |
 | `md` | `20px × 20px` | `16px × 16px` | `rounded-md` |
@@ -41,20 +41,20 @@ const checked3 = ref(false)
 
 ### Events
 
-| 事件名 | 类型 | 描述 |
+| Event Name | Type | Description |
 | --- | --- | --- |
-| `update:modelValue` | `(value: boolean) => void` | 复选框状态变化时触发 |
+| `update:modelValue` | `(value: boolean) => void` | Triggered when checkbox state changes |
 
-### CSS 类名
+### CSS Classes
 
-组件提供以下 CSS 类名用于自定义样式：
+The component provides the following CSS classes for custom styling:
 
-| 类名 | 描述 |
+| Class Name | Description |
 | --- | --- |
-| `.qh-checkbox-label` | 复选框标签容器 |
-| `.qh-checkbox` | 复选框根容器 |
+| `.qh-checkbox-label` | Checkbox label container |
+| `.qh-checkbox` | Checkbox root container |
 
-### 使用示例
+### Usage Examples
 
 ```vue
 <script setup>
@@ -77,28 +77,28 @@ function handleFeatureChange(feature, checked) {
 </script>
 
 <template>
-  <!-- 基础用法 -->
+  <!-- Basic usage -->
   <Checkbox v-model="acceptTerms" />
 
-  <!-- 带标签 -->
+  <!-- With label -->
   <Checkbox
     v-model="acceptTerms"
     label="I accept the terms and conditions"
   />
 
-  <!-- 不同尺寸 -->
+  <!-- Different sizes -->
   <Checkbox v-model="newsletter" size="sm" label="Small checkbox" />
   <Checkbox v-model="newsletter" size="md" label="Medium checkbox" />
   <Checkbox v-model="newsletter" size="lg" label="Large checkbox" />
 
-  <!-- 禁用状态 -->
+  <!-- Disabled state -->
   <Checkbox
     v-model="notifications"
     disabled
     label="Disabled checkbox"
   />
 
-  <!-- 多选列表 -->
+  <!-- Multiple selection list -->
   <div class="space-y-2">
     <h3>Select features:</h3>
     <Checkbox
@@ -118,7 +118,7 @@ function handleFeatureChange(feature, checked) {
     />
   </div>
 
-  <!-- 自定义样式 -->
+  <!-- Custom styling -->
   <Checkbox
     v-model="acceptTerms"
     label="Custom styled checkbox"

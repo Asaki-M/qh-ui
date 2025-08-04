@@ -22,13 +22,13 @@ const options = [
 
 ### Props
 
-| 属性 | 类型 | 默认值 | 描述 |
+| Property | Type | Default | Description |
 | --- | --- | --- | --- |
-| `v-model` | `string` | `undefined` | 选中的值 |
-| `options` | `RadioOption[]` | `required` | 单选选项数组 |
-| `disabled` | `boolean` | `false` | 是否禁用整个组 |
-| `orientation` | `'vertical' \| 'horizontal'` | `'vertical'` | 布局方向 |
-| `size` | `'sm' \| 'md' \| 'lg'` | `'md'` | 单选按钮大小 |
+| `v-model` | `string` | `undefined` | Selected value |
+| `options` | `RadioOption[]` | `required` | Radio options array |
+| `disabled` | `boolean` | `false` | Whether the entire group is disabled |
+| `orientation` | `'vertical' \| 'horizontal'` | `'vertical'` | Layout orientation |
+| `size` | `'sm' \| 'md' \| 'lg'` | `'md'` | Radio button size |
 
 ### Types
 
@@ -40,9 +40,9 @@ interface RadioOption {
 }
 ```
 
-### Size 尺寸对照
+### Size Reference
 
-| Size | 尺寸 |
+| Size | Dimensions |
 | --- | --- |
 | `sm` | `16px × 16px` |
 | `md` | `20px × 20px` |
@@ -50,24 +50,24 @@ interface RadioOption {
 
 ### Events
 
-RadioGroup 组件继承自 `reka-ui` 的 `RadioGroupRoot` 组件，支持以下事件：
+The RadioGroup component inherits from `reka-ui`'s `RadioGroupRoot` component and supports the following events:
 
-| 事件名 | 类型 | 描述 |
+| Event Name | Type | Description |
 | --- | --- | --- |
-| `update:modelValue` | `(value: string) => void` | 选中值变化时触发 |
+| `update:modelValue` | `(value: string) => void` | Triggered when selected value changes |
 
-### CSS 类名
+### CSS Classes
 
-组件提供以下 CSS 类名用于自定义样式：
+The component provides the following CSS classes for custom styling:
 
-| 类名 | 描述 |
+| Class Name | Description |
 | --- | --- |
-| `.qh-radio-group-container` | 单选组根容器 |
-| `.qh-radio-group-item` | 单选项容器 |
-| `.qh-radio-group-button` | 单选按钮 |
-| `.qh-radio-group-label` | 单选项标签 |
+| `.qh-radio-group-container` | Radio group root container |
+| `.qh-radio-group-item` | Radio item container |
+| `.qh-radio-group-button` | Radio button |
+| `.qh-radio-group-label` | Radio item label |
 
-### 使用示例
+### Usage Examples
 
 ```vue
 <script setup>
@@ -99,17 +99,17 @@ const planOptions = [
 </script>
 
 <template>
-  <!-- 基础用法 -->
+  <!-- Basic usage -->
   <RadioGroup v-model="selectedSize" :options="sizeOptions" />
 
-  <!-- 水平布局 -->
+  <!-- Horizontal layout -->
   <RadioGroup
     v-model="selectedColor"
     :options="colorOptions"
     orientation="horizontal"
   />
 
-  <!-- 不同尺寸 -->
+  <!-- Different sizes -->
   <RadioGroup
     v-model="selectedSize"
     :options="sizeOptions"
@@ -126,13 +126,13 @@ const planOptions = [
     size="lg"
   />
 
-  <!-- 包含禁用选项 -->
+  <!-- With disabled options -->
   <RadioGroup
     v-model="selectedColor"
     :options="colorOptions"
   />
 
-  <!-- 禁用整个组 -->
+  <!-- Disabled entire group -->
   <RadioGroup
     v-model="selectedPlan"
     :options="planOptions"
@@ -141,9 +141,9 @@ const planOptions = [
 </template>
 ```
 
-### 使用场景
+### Use Cases
 
-- **表单选择**: 性别、尺寸、颜色等单选
-- **设置选项**: 主题、语言、通知方式
-- **调查问卷**: 满意度、评分等
-- **产品配置**: 套餐选择、规格选择
+- **Form Selection**: Gender, size, color, etc.
+- **Settings Options**: Theme, language, notification preferences
+- **Surveys**: Satisfaction ratings, evaluations
+- **Product Configuration**: Plan selection, specification choices

@@ -33,22 +33,22 @@ const simpleOptions = [
 
 ### Props
 
-| 属性 | 类型 | 默认值 | 描述 |
+| Property | Type | Default | Description |
 | --- | --- | --- | --- |
-| `v-model` | `string \| number` | `required` | 选中的值 |
-| `options` | `SelectOption[]` | `[]` | 选项数据 |
-| `label` | `string` | `undefined` | 选择器标签 |
-| `placeholder` | `string` | `'Select...'` | 占位符文本 |
-| `labelOrientation` | `'horizontal' \| 'vertical'` | `'vertical'` | 标签方向 |
-| `size` | `'sm' \| 'md' \| 'lg'` | `'md'` | 选择器大小 |
-| `variant` | `'primary' \| 'secondary'` | `'primary'` | 选择器样式变体 |
-| `disabled` | `boolean` | `false` | 是否禁用 |
-| `open` | `boolean` | `false` | 是否打开下拉菜单 |
-| `rootClass` | `string` | `undefined` | 根容器额外类名 |
-| `labelClass` | `string` | `undefined` | 标签额外类名 |
-| `triggerClass` | `string` | `undefined` | 触发器额外类名 |
-| `contentClass` | `string` | `undefined` | 内容容器额外类名 |
-| `itemClass` | `string` | `undefined` | 选项额外类名 |
+| `v-model` | `string \| number` | `required` | Selected value |
+| `options` | `SelectOption[]` | `[]` | Options data |
+| `label` | `string` | `undefined` | Select label |
+| `placeholder` | `string` | `'Select...'` | Placeholder text |
+| `labelOrientation` | `'horizontal' \| 'vertical'` | `'vertical'` | Label orientation |
+| `size` | `'sm' \| 'md' \| 'lg'` | `'md'` | Select size |
+| `variant` | `'primary' \| 'secondary'` | `'primary'` | Select style variant |
+| `disabled` | `boolean` | `false` | Whether the component is disabled |
+| `open` | `boolean` | `false` | Whether the dropdown is open |
+| `rootClass` | `string` | `undefined` | Additional CSS class for root container |
+| `labelClass` | `string` | `undefined` | Additional CSS class for label |
+| `triggerClass` | `string` | `undefined` | Additional CSS class for trigger |
+| `contentClass` | `string` | `undefined` | Additional CSS class for content container |
+| `itemClass` | `string` | `undefined` | Additional CSS class for items |
 
 ### Types
 
@@ -60,14 +60,14 @@ interface SelectItemOption {
 }
 
 interface SelectOption {
-  label?: string // 分组标签
+  label?: string // Group label
   children: SelectItemOption[]
 }
 ```
 
-### Size 尺寸对照
+### Size Reference
 
-| Size | 高度 | 内边距 | 字体大小 |
+| Size | Height | Padding | Font Size |
 | --- | --- | --- | --- |
 | `sm` | `32px` | `8px 12px` | `14px` |
 | `md` | `40px` | `12px 16px` | `16px` |
@@ -75,26 +75,26 @@ interface SelectOption {
 
 ### Events
 
-Select 组件继承自 `reka-ui` 的 `SelectRoot` 组件，支持以下事件：
+The Select component inherits from `reka-ui`'s `SelectRoot` component and supports the following events:
 
-| 事件名 | 类型 | 描述 |
+| Event Name | Type | Description |
 | --- | --- | --- |
-| `update:modelValue` | `(value: string \| number) => void` | 选中值变化时触发 |
-| `update:open` | `(open: boolean) => void` | 下拉菜单开关状态变化时触发 |
+| `update:modelValue` | `(value: string \| number) => void` | Triggered when selected value changes |
+| `update:open` | `(open: boolean) => void` | Triggered when dropdown open state changes |
 
-### CSS 类名
+### CSS Classes
 
-组件提供以下 CSS 类名用于自定义样式：
+The component provides the following CSS classes for custom styling:
 
-| 类名 | 描述 |
+| Class Name | Description |
 | --- | --- |
-| `.qh-select-root` | 选择器根容器 |
-| `.qh-select-label` | 选择器标签 |
-| `.qh-select-trigger` | 选择器触发器 |
-| `.qh-select-content` | 下拉内容容器 |
-| `.qh-select-item` | 选项元素 |
+| `.qh-select-root` | Select root container |
+| `.qh-select-label` | Select label |
+| `.qh-select-trigger` | Select trigger |
+| `.qh-select-content` | Dropdown content container |
+| `.qh-select-item` | Option items |
 
-### 使用示例
+### Usage Examples
 
 ```vue
 <script setup>
@@ -104,7 +104,7 @@ import { ref } from 'vue'
 const selectedFruit = ref('')
 const selectedCountry = ref('')
 
-// 简单选项
+// Simple options
 const fruits = [
   {
     children: [
@@ -115,7 +115,7 @@ const fruits = [
   }
 ]
 
-// 分组选项
+// Grouped options
 const countries = [
   {
     label: 'Asia',
@@ -137,14 +137,14 @@ const countries = [
 </script>
 
 <template>
-  <!-- 基础用法 -->
+  <!-- Basic usage -->
   <Select
     v-model="selectedFruit"
     :options="fruits"
     placeholder="Choose a fruit"
   />
 
-  <!-- 带标签 -->
+  <!-- With label -->
   <Select
     v-model="selectedCountry"
     :options="countries"
@@ -152,12 +152,12 @@ const countries = [
     placeholder="Select your country"
   />
 
-  <!-- 不同尺寸 -->
+  <!-- Different sizes -->
   <Select v-model="selectedFruit" :options="fruits" size="sm" />
   <Select v-model="selectedFruit" :options="fruits" size="md" />
   <Select v-model="selectedFruit" :options="fruits" size="lg" />
 
-  <!-- 水平标签 -->
+  <!-- Horizontal label -->
   <Select
     v-model="selectedFruit"
     :options="fruits"
@@ -165,7 +165,7 @@ const countries = [
     label-orientation="horizontal"
   />
 
-  <!-- 禁用状态 -->
+  <!-- Disabled state -->
   <Select
     v-model="selectedFruit"
     :options="fruits"

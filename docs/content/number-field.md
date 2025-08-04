@@ -16,43 +16,43 @@ const numberValue = ref(10)
 
 ### Props
 
-| 属性 | 类型 | 默认值 | 描述 |
+| Property | Type | Default | Description |
 | --- | --- | --- | --- |
-| `v-model` | `number` | `required` | 数字输入框的值 |
-| `min` | `number` | `0` | 最小值 |
-| `max` | `number` | `Infinity` | 最大值 |
-| `disabled` | `boolean` | `false` | 是否禁用 |
-| `label` | `string` | `undefined` | 输入框标签 |
-| `variant` | `'primary' \| 'secondary'` | `'primary'` | 输入框样式变体 |
-| `rootClass` | `string` | `undefined` | 根容器额外类名 |
-| `labelClass` | `string` | `undefined` | 标签额外类名 |
-| `inputContainerClass` | `string` | `undefined` | 输入容器额外类名 |
-| `decrementClass` | `string` | `undefined` | 减少按钮额外类名 |
-| `inputClass` | `string` | `undefined` | 输入框额外类名 |
-| `incrementClass` | `string` | `undefined` | 增加按钮额外类名 |
+| `v-model` | `number` | `required` | Number input value |
+| `min` | `number` | `0` | Minimum value |
+| `max` | `number` | `Infinity` | Maximum value |
+| `disabled` | `boolean` | `false` | Whether the input is disabled |
+| `label` | `string` | `undefined` | Input label |
+| `variant` | `'primary' \| 'secondary'` | `'primary'` | Input style variant |
+| `rootClass` | `string` | `undefined` | Additional CSS class for root container |
+| `labelClass` | `string` | `undefined` | Additional CSS class for label |
+| `inputContainerClass` | `string` | `undefined` | Additional CSS class for input container |
+| `decrementClass` | `string` | `undefined` | Additional CSS class for decrement button |
+| `inputClass` | `string` | `undefined` | Additional CSS class for input |
+| `incrementClass` | `string` | `undefined` | Additional CSS class for increment button |
 
 ### Events
 
-NumberField 组件继承自 `reka-ui` 的 `NumberFieldRoot` 组件，支持以下事件：
+The NumberField component inherits from `reka-ui`'s `NumberFieldRoot` component and supports the following events:
 
-| 事件名 | 类型 | 描述 |
+| Event Name | Type | Description |
 | --- | --- | --- |
-| `update:modelValue` | `(value: number) => void` | 数值变化时触发 |
+| `update:modelValue` | `(value: number) => void` | Triggered when number value changes |
 
-### CSS 类名
+### CSS Classes
 
-组件提供以下 CSS 类名用于自定义样式：
+The component provides the following CSS classes for custom styling:
 
-| 类名 | 描述 |
+| Class Name | Description |
 | --- | --- |
-| `.qh-number-field-root` | 数字输入框根容器 |
-| `.qh-number-field-label` | 数字输入框标签 |
-| `.qh-number-field-container` | 输入容器 |
-| `.qh-number-field-decrement` | 减少按钮 |
-| `.qh-number-field-input` | 输入框 |
-| `.qh-number-field-increment` | 增加按钮 |
+| `.qh-number-field-root` | Number field root container |
+| `.qh-number-field-label` | Number field label |
+| `.qh-number-field-container` | Input container |
+| `.qh-number-field-decrement` | Decrement button |
+| `.qh-number-field-input` | Input field |
+| `.qh-number-field-increment` | Increment button |
 
-### 使用示例
+### Usage Examples
 
 ```vue
 <script setup>
@@ -65,10 +65,10 @@ const age = ref(25)
 </script>
 
 <template>
-  <!-- 基础用法 -->
+  <!-- Basic usage -->
   <NumberField v-model="quantity" />
 
-  <!-- 带标签 -->
+  <!-- With label -->
   <NumberField
     v-model="quantity"
     label="Quantity"
@@ -76,7 +76,7 @@ const age = ref(25)
     :max="10"
   />
 
-  <!-- 价格输入（支持小数） -->
+  <!-- Price input (supports decimals) -->
   <NumberField
     v-model="price"
     label="Price ($)"
@@ -84,7 +84,7 @@ const age = ref(25)
     :max="999.99"
   />
 
-  <!-- 年龄输入 -->
+  <!-- Age input -->
   <NumberField
     v-model="age"
     label="Age"
@@ -92,14 +92,14 @@ const age = ref(25)
     :max="120"
   />
 
-  <!-- 禁用状态 -->
+  <!-- Disabled state -->
   <NumberField
     v-model="quantity"
     disabled
     label="Disabled"
   />
 
-  <!-- 不同变体 -->
+  <!-- Different variants -->
   <NumberField
     v-model="quantity"
     variant="primary"
@@ -111,7 +111,7 @@ const age = ref(25)
     label="Secondary"
   />
 
-  <!-- 自定义样式 -->
+  <!-- Custom styling -->
   <NumberField
     v-model="quantity"
     label="Custom Style"
