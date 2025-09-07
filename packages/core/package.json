@@ -43,7 +43,11 @@
     "dev": "vite build --watch",
     "type-check": "vue-tsc -p tsconfig.check.json --noEmit",
     "type-gen": "vue-tsc --declaration  --emitDeclarationOnly",
-    "pub:release": "pnpm publish --no-git-checks --access public"
+    "pub:release": "pnpm publish --no-git-checks --access public",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:run": "vitest run",
+    "test:coverage": "vitest run --coverage"
   },
   "peerDependencies": {
     "vue": ">= 3.2.0"
@@ -58,10 +62,15 @@
     "@tsconfig/node18": "^18.2.4",
     "@types/node": "^20.17.17",
     "@vitejs/plugin-vue": "^5.2.4",
+    "@vitest/coverage-v8": "^2.1.8",
+    "@vitest/ui": "^2.1.8",
+    "@vue/test-utils": "^2.4.6",
     "@vue/tsconfig": "^0.7.0",
+    "happy-dom": "^15.11.6",
     "tailwindcss": "^4.1.11",
     "vite": "^5.4.19",
     "vite-plugin-dts": "^4.5.4",
+    "vitest": "^2.1.8",
     "vue": "3.5.13",
     "vue-tsc": "2.2.10"
   }
